@@ -1,0 +1,22 @@
+Place the following images in this directory:
+
+- tropical_island.jpg - Beautiful tropical island with clear waters
+- coral_reef.jpg - Vibrant coral reef ecosystem
+- shipwreck.jpg - Historic underwater shipwreck
+- deep_blue.jpg - Deep ocean waters
+
+You can find suitable images from:
+- Unsplash.com (free stock photos)
+- Pexels.com (free stock photos)
+- Pixabay.com (free images)
+
+Search terms:
+- "tropical island diving"
+- "coral reef underwater"
+- "shipwreck diving"
+- "deep ocean blue water"
+
+Make sure images are:
+- High resolution (at least 1920x1080)
+- JPEG format for better compression
+- Suitable for mobile display 
