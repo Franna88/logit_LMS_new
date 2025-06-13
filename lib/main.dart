@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'services/game_state_provider.dart';
 import 'screens/game_map_screen.dart';
+import 'screens/role_selection_screen.dart';
 
 void main() {
   runApp(const DivingCourseApp());
@@ -87,13 +88,13 @@ class _SplashScreenState extends State<SplashScreen>
 
     _animationController.forward();
 
-    // Navigate to main game after animation
+    // Navigate to role selection after animation
     Future.delayed(const Duration(seconds: 4), () {
       if (mounted) {
         Navigator.of(context).pushReplacement(
           PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                const GameMapScreen(),
+                const RoleSelectionScreen(),
             transitionsBuilder:
                 (context, animation, secondaryAnimation, child) {
               return FadeTransition(

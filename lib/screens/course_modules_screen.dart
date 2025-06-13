@@ -7,6 +7,7 @@ import '../models/diving_course.dart';
 import '../models/poi.dart';
 import '../widgets/bubble_animation.dart';
 import 'module_lesson_screen.dart';
+import 'assessment_viewer_screen.dart';
 
 class CourseModule {
   final String id;
@@ -16,6 +17,7 @@ class CourseModule {
   final bool isCompleted;
   final bool isLocked;
   final List<String> lessons;
+  final List<String> assessments;
 
   CourseModule({
     required this.id,
@@ -25,6 +27,7 @@ class CourseModule {
     this.isCompleted = false,
     this.isLocked = false,
     this.lessons = const [],
+    this.assessments = const [],
   });
 }
 
@@ -109,6 +112,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
     if (selectedCourse == null) return;
     
     switch (selectedCourse!.id) {
+      // Technical Diving POI Courses
       case 'open_water':
         modules = [
           CourseModule(
@@ -117,6 +121,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Learn fundamental diving principles and physics',
             duration: 45,
             lessons: ['Pressure & Depth', 'Gas Laws', 'Buoyancy Principles', 'Nitrogen Absorption'],
+            assessments: ['Theory Fundamentals Quiz', 'Physics Principles Test'],
           ),
           CourseModule(
             id: 'equipment',
@@ -124,6 +129,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Understanding your diving gear and safety equipment',
             duration: 30,
             lessons: ['Mask & Fins', 'Regulator System', 'BCD Operation', 'Wetsuit Selection'],
+            assessments: ['Equipment Identification Quiz'],
           ),
           CourseModule(
             id: 'pool_training',
@@ -131,6 +137,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Practice basic skills in a controlled environment',
             duration: 60,
             lessons: ['Breathing Underwater', 'Clearing Mask', 'Emergency Ascent', 'Buddy System'],
+            assessments: ['Skills Demonstration Assessment'],
           ),
           CourseModule(
             id: 'open_water_dives',
@@ -138,7 +145,106 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Complete your certification dives in real conditions',
             duration: 120,
             lessons: ['Pre-dive Safety Check', 'Descent Techniques', 'Underwater Navigation', 'Emergency Procedures'],
+            assessments: ['Final Certification Exam'],
             isLocked: true,
+          ),
+        ];
+        break;
+      case 'advanced_open_water':
+        modules = [
+          CourseModule(
+            id: 'navigation',
+            title: 'Underwater Navigation',
+            description: 'Master compass and natural navigation techniques',
+            duration: 50,
+            lessons: ['Compass Navigation', 'Natural Navigation', 'Underwater Mapping', 'GPS Integration'],
+            assessments: ['Navigation Skills Test', 'Compass Reading Quiz'],
+          ),
+          CourseModule(
+            id: 'deep_diving',
+            title: 'Deep Diving Specialty',
+            description: 'Learn to dive safely at greater depths',
+            duration: 60,
+            lessons: ['Deep Dive Planning', 'Nitrogen Narcosis', 'Safety Stops', 'Emergency Procedures'],
+            assessments: ['Deep Diving Theory Exam'],
+          ),
+          CourseModule(
+            id: 'specialties',
+            title: 'Adventure Dives',
+            description: 'Experience various diving specialties',
+            duration: 90,
+            lessons: ['Night Diving', 'Wreck Diving', 'Drift Diving', 'Peak Performance Buoyancy'],
+            assessments: ['Specialty Skills Assessment'],
+          ),
+        ];
+        break;
+      case 'deep_diver':
+        modules = [
+          CourseModule(
+            id: 'depth_physiology',
+            title: 'Deep Water Physiology',
+            description: 'Understanding how depth affects the human body',
+            duration: 40,
+            lessons: ['Nitrogen Narcosis', 'Oxygen Toxicity', 'Decompression Theory', 'Gas Management'],
+            assessments: ['Physiology Knowledge Test', 'Gas Laws Quiz'],
+          ),
+          CourseModule(
+            id: 'safety_procedures',
+            title: 'Safety Protocols',
+            description: 'Advanced safety procedures for deep diving',
+            duration: 35,
+            lessons: ['Dive Planning', 'Emergency Ascent', 'Decompression Stops', 'Rescue Techniques'],
+            assessments: ['Safety Procedures Exam'],
+          ),
+        ];
+        break;
+      case 'technical_fundamentals':
+        modules = [
+          CourseModule(
+            id: 'mixed_gas_theory',
+            title: 'Mixed Gas Theory',
+            description: 'Understanding gas mixtures for technical diving',
+            duration: 70,
+            lessons: ['Nitrox Theory', 'Trimix Basics', 'Gas Properties', 'Toxicity Limits'],
+            assessments: ['Gas Theory Exam', 'Mixing Calculations Test'],
+          ),
+          CourseModule(
+            id: 'decompression_theory',
+            title: 'Decompression Theory',
+            description: 'Advanced decompression planning and execution',
+            duration: 80,
+            lessons: ['Decompression Models', 'Stop Schedules', 'Gradient Factors', 'Emergency Procedures'],
+            assessments: ['Decompression Planning Test'],
+          ),
+        ];
+        break;
+
+      // Photography POI Courses
+      case 'underwater_photography':
+        modules = [
+          CourseModule(
+            id: 'camera_basics',
+            title: 'Underwater Camera Basics',
+            description: 'Learn underwater camera operation and settings',
+            duration: 40,
+            lessons: ['Camera Housing', 'White Balance', 'Focus Modes', 'Basic Settings'],
+            assessments: ['Camera Operation Quiz', 'Settings Configuration Test'],
+          ),
+          CourseModule(
+            id: 'lighting_techniques',
+            title: 'Underwater Lighting',
+            description: 'Master underwater lighting and strobe techniques',
+            duration: 50,
+            lessons: ['Natural Light', 'Strobe Positioning', 'Color Correction', 'Shadow Management'],
+            assessments: ['Lighting Techniques Assessment'],
+          ),
+          CourseModule(
+            id: 'composition_skills',
+            title: 'Composition & Framing',
+            description: 'Develop artistic eye for underwater photography',
+            duration: 35,
+            lessons: ['Rule of Thirds', 'Leading Lines', 'Negative Space', 'Subject Isolation'],
+            assessments: ['Composition Portfolio Review'],
           ),
         ];
         break;
@@ -150,6 +256,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Understanding underwater habitats and food chains',
             duration: 35,
             lessons: ['Coral Reefs', 'Kelp Forests', 'Deep Sea Habitats', 'Tropical Waters'],
+            assessments: ['Ecosystem Identification Quiz'],
           ),
           CourseModule(
             id: 'species_identification',
@@ -157,6 +264,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Learn to identify common marine life',
             duration: 40,
             lessons: ['Fish Species', 'Invertebrates', 'Marine Mammals', 'Coral Types'],
+            assessments: ['Species ID Test', 'Field Guide Quiz'],
           ),
           CourseModule(
             id: 'behavior_observation',
@@ -164,204 +272,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Study marine animal behavior and interactions',
             duration: 30,
             lessons: ['Feeding Patterns', 'Mating Behavior', 'Territorial Displays', 'Symbiotic Relationships'],
-          ),
-        ];
-        break;
-      case 'wreck_diving':
-        modules = [
-          CourseModule(
-            id: 'wreck_history',
-            title: 'Maritime History',
-            description: 'Learn about famous shipwrecks and their stories',
-            duration: 30,
-            lessons: ['Titanic & Famous Wrecks', 'WWII Naval History', 'Merchant Vessels', 'Archaeological Sites'],
-          ),
-          CourseModule(
-            id: 'penetration_techniques',
-            title: 'Wreck Penetration',
-            description: 'Safe entry and navigation inside wrecks',
-            duration: 50,
-            lessons: ['Entry Planning', 'Line Following', 'Air Management', 'Emergency Exit Routes'],
-          ),
-          CourseModule(
-            id: 'photography',
-            title: 'Wreck Photography',
-            description: 'Capture the beauty of underwater archaeology',
-            duration: 40,
-            lessons: ['Lighting Techniques', 'Composition', 'Equipment Setup', 'Post-Processing'],
-            isLocked: true,
-          ),
-        ];
-        break;
-      case 'deep_diving':
-        modules = [
-          CourseModule(
-            id: 'depth_physiology',
-            title: 'Deep Water Physiology',
-            description: 'Understanding how depth affects the human body',
-            duration: 40,
-            lessons: ['Nitrogen Narcosis', 'Oxygen Toxicity', 'Decompression Theory', 'Gas Management'],
-          ),
-          CourseModule(
-            id: 'safety_procedures',
-            title: 'Safety Protocols',
-            description: 'Advanced safety procedures for deep diving',
-            duration: 35,
-            lessons: ['Dive Planning', 'Emergency Ascent', 'Decompression Stops', 'Rescue Techniques'],
-          ),
-          CourseModule(
-            id: 'deep_exploration',
-            title: 'Deep Water Exploration',
-            description: 'Practical deep diving experience',
-            duration: 90,
-            lessons: ['Deep Descent Techniques', 'Bottom Time Management', 'Advanced Navigation', 'Equipment Checks'],
-            isLocked: true,
-          ),
-        ];
-        break;
-      case 'cave_diving':
-        modules = [
-          CourseModule(
-            id: 'cave_environment',
-            title: 'Cave Environment',
-            description: 'Understanding the unique challenges of cave diving',
-            duration: 45,
-            lessons: ['Cave Formation', 'Water Conditions', 'Hazard Recognition', 'Environmental Protection'],
-          ),
-          CourseModule(
-            id: 'line_techniques',
-            title: 'Guideline Techniques',
-            description: 'Master the use of guidelines for safe navigation',
-            duration: 40,
-            lessons: ['Line Laying', 'Line Following', 'Tie-offs', 'Emergency Procedures'],
-          ),
-          CourseModule(
-            id: 'advanced_penetration',
-            title: 'Advanced Cave Penetration',
-            description: 'Complex cave diving scenarios and techniques',
-            duration: 60,
-            lessons: ['Restrictions Navigation', 'Silt Management', 'Lost Line Procedures', 'Team Communication'],
-            isLocked: true,
-          ),
-        ];
-        break;
-      case 'scientific_diving':
-        modules = [
-          CourseModule(
-            id: 'research_methods',
-            title: 'Research Methodology',
-            description: 'Scientific approaches to underwater research',
-            duration: 50,
-            lessons: ['Data Collection', 'Sampling Techniques', 'Documentation', 'Research Ethics'],
-          ),
-          CourseModule(
-            id: 'equipment_operation',
-            title: 'Scientific Equipment',
-            description: 'Operating specialized research equipment underwater',
-            duration: 45,
-            lessons: ['Underwater Cameras', 'Sampling Tools', 'Measurement Devices', 'Data Loggers'],
-          ),
-          CourseModule(
-            id: 'field_work',
-            title: 'Field Research Project',
-            description: 'Conduct real scientific research underwater',
-            duration: 120,
-            lessons: ['Project Planning', 'Data Collection', 'Analysis', 'Report Writing'],
-            isLocked: true,
-          ),
-        ];
-        break;
-      case 'kelp_forest_diving':
-        modules = [
-          CourseModule(
-            id: 'kelp_navigation',
-            title: 'Kelp Forest Navigation',
-            description: 'Navigate safely through dense kelp forests',
-            duration: 30,
-            lessons: ['Entry Techniques', 'Kelp Avoidance', 'Emergency Procedures', 'Current Management'],
-          ),
-          CourseModule(
-            id: 'marine_life',
-            title: 'Kelp Forest Ecology',
-            description: 'Discover the rich ecosystem of kelp forests',
-            duration: 40,
-            lessons: ['Kelp Species', 'Fish Communities', 'Invertebrate Life', 'Predator-Prey Relationships'],
-          ),
-          CourseModule(
-            id: 'conservation',
-            title: 'Marine Conservation',
-            description: 'Learn about protecting kelp forest ecosystems',
-            duration: 25,
-            lessons: ['Threats to Kelp Forests', 'Conservation Efforts', 'Sustainable Diving', 'Citizen Science'],
-          ),
-        ];
-        break;
-      case 'technical_wreck':
-        modules = [
-          CourseModule(
-            id: 'mixed_gas',
-            title: 'Mixed Gas Diving',
-            description: 'Advanced gas mixtures for deep wreck penetration',
-            duration: 60,
-            lessons: ['Trimix Theory', 'Gas Planning', 'Equipment Setup', 'Emergency Procedures'],
-          ),
-          CourseModule(
-            id: 'decompression',
-            title: 'Advanced Decompression',
-            description: 'Complex decompression procedures for technical dives',
-            duration: 55,
-            lessons: ['Decompression Software', 'Multi-level Stops', 'Accelerated Decompression', 'Emergency Protocols'],
-          ),
-          CourseModule(
-            id: 'penetration_advanced',
-            title: 'Advanced Penetration',
-            description: 'Complex wreck penetration techniques',
-            duration: 75,
-            lessons: ['Multi-level Penetration', 'Team Procedures', 'Equipment Management', 'Emergency Exit'],
-            isLocked: true,
-          ),
-        ];
-        break;
-      case 'military_history':
-        modules = [
-          CourseModule(
-            id: 'naval_warfare',
-            title: 'Naval Warfare History',
-            description: 'Understanding military naval operations',
-            duration: 35,
-            lessons: ['WWII Pacific Theater', 'Atlantic Battles', 'Submarine Warfare', 'Naval Technology'],
-          ),
-          CourseModule(
-            id: 'wreck_identification',
-            title: 'Military Wreck Identification',
-            description: 'Identifying military vessels and aircraft',
-            duration: 40,
-            lessons: ['Ship Classifications', 'Aircraft Types', 'Armament Recognition', 'Historical Context'],
-          ),
-        ];
-        break;
-      case 'underwater_photography':
-        modules = [
-          CourseModule(
-            id: 'camera_basics',
-            title: 'Underwater Camera Basics',
-            description: 'Learn underwater camera operation and settings',
-            duration: 40,
-            lessons: ['Camera Housing', 'White Balance', 'Focus Modes', 'Basic Settings'],
-          ),
-          CourseModule(
-            id: 'lighting_techniques',
-            title: 'Underwater Lighting',
-            description: 'Master underwater lighting and strobe techniques',
-            duration: 50,
-            lessons: ['Natural Light', 'Strobe Positioning', 'Color Correction', 'Shadow Management'],
-          ),
-          CourseModule(
-            id: 'composition_skills',
-            title: 'Composition & Framing',
-            description: 'Develop artistic eye for underwater photography',
-            duration: 35,
-            lessons: ['Rule of Thirds', 'Leading Lines', 'Negative Space', 'Subject Isolation'],
+            assessments: ['Behavior Analysis Assignment'],
           ),
         ];
         break;
@@ -373,6 +284,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Specialized equipment for macro photography',
             duration: 30,
             lessons: ['Macro Lenses', 'Extension Tubes', 'Diopters', 'Support Systems'],
+            assessments: ['Equipment Setup Test'],
           ),
           CourseModule(
             id: 'close_up_techniques',
@@ -380,6 +292,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Advanced techniques for small subject photography',
             duration: 45,
             lessons: ['Focus Stacking', 'Magnification Ratios', 'Depth of Field', 'Subject Approach'],
+            assessments: ['Macro Photography Portfolio'],
           ),
         ];
         break;
@@ -391,6 +304,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Understanding modern digital imaging sensors',
             duration: 40,
             lessons: ['Sensor Types', 'Resolution', 'Dynamic Range', 'ISO Performance'],
+            assessments: ['Sensor Technology Quiz'],
           ),
           CourseModule(
             id: 'post_processing',
@@ -398,13 +312,29 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Edit and enhance underwater images',
             duration: 60,
             lessons: ['RAW Processing', 'Color Correction', 'Contrast Enhancement', 'Noise Reduction'],
+            assessments: ['Post-Processing Project'],
+          ),
+        ];
+        break;
+
+      // Wreck Diving POI Courses
+      case 'wreck_diving':
+        modules = [
+          CourseModule(
+            id: 'wreck_history',
+            title: 'Maritime History',
+            description: 'Learn about famous shipwrecks and their stories',
+            duration: 30,
+            lessons: ['Titanic & Famous Wrecks', 'WWII Naval History', 'Merchant Vessels', 'Archaeological Sites'],
+            assessments: ['Maritime History Quiz'],
           ),
           CourseModule(
-            id: 'video_recording',
-            title: 'Underwater Videography',
-            description: 'Record and edit underwater video content',
+            id: 'penetration_techniques',
+            title: 'Wreck Penetration',
+            description: 'Safe entry and navigation inside wrecks',
             duration: 50,
-            lessons: ['Video Settings', 'Stabilization', 'Movement Techniques', 'Editing Basics'],
+            lessons: ['Entry Planning', 'Line Following', 'Air Management', 'Emergency Exit Routes'],
+            assessments: ['Penetration Safety Test', 'Emergency Procedures Quiz'],
           ),
         ];
         break;
@@ -416,6 +346,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Advanced wreck penetration techniques',
             duration: 80,
             lessons: ['Complex Navigation', 'Multi-level Penetration', 'Emergency Procedures', 'Team Coordination'],
+            assessments: ['Advanced Penetration Exam'],
           ),
           CourseModule(
             id: 'gas_management',
@@ -423,10 +354,11 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Gas planning for complex wreck dives',
             duration: 60,
             lessons: ['Rule of Thirds', 'Contingency Planning', 'Emergency Gas', 'Team Protocols'],
+            assessments: ['Gas Management Calculations'],
           ),
         ];
         break;
-      case 'wreck_archaeology':
+      case 'maritime_archaeology':
         modules = [
           CourseModule(
             id: 'archaeological_methods',
@@ -434,6 +366,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Scientific methods for wreck documentation',
             duration: 50,
             lessons: ['Site Mapping', 'Artifact Recording', 'Photography', 'Data Management'],
+            assessments: ['Documentation Methods Test'],
           ),
           CourseModule(
             id: 'preservation',
@@ -441,10 +374,11 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Protect and preserve underwater heritage',
             duration: 45,
             lessons: ['Conservation Ethics', 'Site Protection', 'Legal Framework', 'Best Practices'],
+            assessments: ['Conservation Ethics Exam'],
           ),
         ];
         break;
-      case 'treasure_hunting':
+      case 'treasure_hunter':
         modules = [
           CourseModule(
             id: 'detection_methods',
@@ -452,6 +386,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Advanced search and detection techniques',
             duration: 60,
             lessons: ['Metal Detector Operation', 'Search Patterns', 'Target Identification', 'Recovery Methods'],
+            assessments: ['Detection Techniques Test'],
           ),
           CourseModule(
             id: 'legal_aspects',
@@ -459,99 +394,12 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Laws and ethics of treasure hunting',
             duration: 40,
             lessons: ['Maritime Law', 'Salvage Rights', 'Permits', 'Ethical Guidelines'],
+            assessments: ['Maritime Law Exam'],
           ),
         ];
         break;
-      case 'technical_diving':
-        modules = [
-          CourseModule(
-            id: 'mixed_gas_theory',
-            title: 'Mixed Gas Theory',
-            description: 'Understanding gas mixtures for technical diving',
-            duration: 70,
-            lessons: ['Nitrox Theory', 'Trimix Basics', 'Gas Properties', 'Toxicity Limits'],
-          ),
-          CourseModule(
-            id: 'decompression_theory',
-            title: 'Decompression Theory',
-            description: 'Advanced decompression planning and execution',
-            duration: 80,
-            lessons: ['Decompression Models', 'Stop Schedules', 'Gradient Factors', 'Emergency Procedures'],
-          ),
-        ];
-        break;
-      case 'trimix_diving':
-        modules = [
-          CourseModule(
-            id: 'gas_blending',
-            title: 'Gas Blending Techniques',
-            description: 'Learn to mix trimix gases safely',
-            duration: 60,
-            lessons: ['Mixing Calculations', 'Equipment Setup', 'Safety Procedures', 'Quality Control'],
-          ),
-          CourseModule(
-            id: 'deep_exploration',
-            title: 'Deep Exploration Techniques',
-            description: 'Advanced techniques for extreme depth diving',
-            duration: 100,
-            lessons: ['Deep Descent', 'Narcosis Management', 'Emergency Ascent', 'Team Procedures'],
-          ),
-        ];
-        break;
-      case 'search_recovery':
-        modules = [
-          CourseModule(
-            id: 'search_patterns',
-            title: 'Professional Search Patterns',
-            description: 'Systematic search techniques for recovery operations',
-            duration: 50,
-            lessons: ['Grid Patterns', 'Circular Search', 'Compass Navigation', 'Team Coordination'],
-          ),
-          CourseModule(
-            id: 'recovery_methods',
-            title: 'Object Recovery Techniques',
-            description: 'Safe and effective recovery procedures',
-            duration: 60,
-            lessons: ['Lift Calculations', 'Rigging Techniques', 'Safety Protocols', 'Equipment Operation'],
-          ),
-        ];
-        break;
-      case 'lift_bag':
-        modules = [
-          CourseModule(
-            id: 'lift_calculations',
-            title: 'Lift Bag Calculations',
-            description: 'Mathematical principles of underwater lifting',
-            duration: 35,
-            lessons: ['Buoyancy Calculations', 'Weight Assessment', 'Safety Margins', 'Load Limits'],
-          ),
-          CourseModule(
-            id: 'deployment_techniques',
-            title: 'Lift Bag Deployment',
-            description: 'Proper deployment and control of lift bags',
-            duration: 45,
-            lessons: ['Attachment Methods', 'Controlled Ascent', 'Emergency Procedures', 'Surface Operations'],
-          ),
-        ];
-        break;
-      case 'evidence_recovery':
-        modules = [
-          CourseModule(
-            id: 'chain_custody',
-            title: 'Chain of Custody Procedures',
-            description: 'Legal procedures for evidence handling',
-            duration: 40,
-            lessons: ['Documentation Requirements', 'Evidence Packaging', 'Transportation', 'Court Testimony'],
-          ),
-          CourseModule(
-            id: 'underwater_photography_evidence',
-            title: 'Evidence Photography',
-            description: 'Specialized photography for legal evidence',
-            duration: 50,
-            lessons: ['Photo Standards', 'Scale References', 'Lighting Requirements', 'Digital Integrity'],
-          ),
-        ];
-        break;
+
+      // Cave Diving POI Courses
       case 'cavern_diving':
         modules = [
           CourseModule(
@@ -560,6 +408,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Safe exploration within the light zone',
             duration: 40,
             lessons: ['Light Zone Limits', 'Natural Navigation', 'Emergency Exit', 'Equipment Requirements'],
+            assessments: ['Light Zone Safety Quiz'],
           ),
           CourseModule(
             id: 'basic_overhead',
@@ -567,186 +416,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Introduction to overhead diving environments',
             duration: 35,
             lessons: ['Overhead Hazards', 'Exit Awareness', 'Air Management', 'Team Communication'],
-          ),
-        ];
-        break;
-      case 'cave_rescue':
-        modules = [
-          CourseModule(
-            id: 'rescue_planning',
-            title: 'Cave Rescue Planning',
-            description: 'Plan and execute cave rescue operations',
-            duration: 80,
-            lessons: ['Incident Assessment', 'Resource Management', 'Risk Analysis', 'Operational Planning'],
-          ),
-          CourseModule(
-            id: 'victim_recovery',
-            title: 'Victim Recovery Techniques',
-            description: 'Specialized techniques for cave victim recovery',
-            duration: 90,
-            lessons: ['Patient Assessment', 'Evacuation Methods', 'Medical Considerations', 'Team Coordination'],
-          ),
-        ];
-        break;
-      case 'cave_survey':
-        modules = [
-          CourseModule(
-            id: 'survey_techniques',
-            title: 'Cave Survey Methods',
-            description: 'Professional cave surveying and mapping',
-            duration: 60,
-            lessons: ['Survey Instruments', 'Measurement Techniques', 'Data Recording', 'Quality Control'],
-          ),
-          CourseModule(
-            id: 'mapping_software',
-            title: 'Digital Cave Mapping',
-            description: 'Use software to create detailed cave maps',
-            duration: 50,
-            lessons: ['Survey Software', 'Data Input', '3D Modeling', 'Map Production'],
-          ),
-        ];
-        break;
-      case 'thermal_vent_biology':
-        modules = [
-          CourseModule(
-            id: 'extremophiles',
-            title: 'Extremophile Organisms',
-            description: 'Study life forms that thrive in extreme conditions',
-            duration: 45,
-            lessons: ['Bacterial Communities', 'Archaea', 'Adaptation Mechanisms', 'Evolutionary Biology'],
-          ),
-          CourseModule(
-            id: 'chemosynthesis',
-            title: 'Chemosynthetic Processes',
-            description: 'Understand energy production without sunlight',
-            duration: 40,
-            lessons: ['Chemical Energy', 'Metabolic Pathways', 'Primary Production', 'Food Web Dynamics'],
-          ),
-        ];
-        break;
-      case 'geological_survey':
-        modules = [
-          CourseModule(
-            id: 'rock_identification',
-            title: 'Underwater Rock Identification',
-            description: 'Identify and classify underwater rock formations',
-            duration: 50,
-            lessons: ['Rock Types', 'Formation Processes', 'Mineral Identification', 'Geological History'],
-          ),
-          CourseModule(
-            id: 'sample_collection',
-            title: 'Geological Sample Collection',
-            description: 'Proper techniques for collecting geological samples',
-            duration: 40,
-            lessons: ['Sampling Methods', 'Preservation Techniques', 'Data Recording', 'Laboratory Analysis'],
-          ),
-        ];
-        break;
-      case 'deep_sea_research':
-        modules = [
-          CourseModule(
-            id: 'research_equipment',
-            title: 'Deep Sea Research Equipment',
-            description: 'Advanced equipment for deep sea exploration',
-            duration: 70,
-            lessons: ['ROV Operation', 'Pressure Vessels', 'Sampling Tools', 'Communication Systems'],
-          ),
-          CourseModule(
-            id: 'data_analysis',
-            title: 'Scientific Data Analysis',
-            description: 'Analyze and interpret deep sea research data',
-            duration: 60,
-            lessons: ['Statistical Methods', 'Data Visualization', 'Report Writing', 'Peer Review'],
-          ),
-        ];
-        break;
-      case 'environmental_monitoring':
-        modules = [
-          CourseModule(
-            id: 'water_quality',
-            title: 'Water Quality Assessment',
-            description: 'Monitor and assess underwater water quality',
-            duration: 40,
-            lessons: ['Chemical Parameters', 'Biological Indicators', 'Pollution Sources', 'Impact Assessment'],
-          ),
-          CourseModule(
-            id: 'monitoring_equipment',
-            title: 'Environmental Monitoring Equipment',
-            description: 'Use specialized equipment for environmental monitoring',
-            duration: 35,
-            lessons: ['Sensor Technology', 'Data Loggers', 'Calibration', 'Maintenance Procedures'],
-          ),
-        ];
-        break;
-      case 'submarine_penetration':
-        modules = [
-          CourseModule(
-            id: 'submarine_layout',
-            title: 'Submarine Layout & Systems',
-            description: 'Understanding submarine internal structure',
-            duration: 60,
-            lessons: ['Compartment Layout', 'Access Routes', 'Emergency Systems', 'Historical Variations'],
-          ),
-          CourseModule(
-            id: 'penetration_safety',
-            title: 'Submarine Penetration Safety',
-            description: 'Advanced safety protocols for submarine exploration',
-            duration: 70,
-            lessons: ['Structural Integrity', 'Hazard Recognition', 'Emergency Procedures', 'Equipment Requirements'],
-          ),
-        ];
-        break;
-      case 'naval_archaeology':
-        modules = [
-          CourseModule(
-            id: 'historical_research',
-            title: 'Naval Historical Research',
-            description: 'Research methods for naval archaeology',
-            duration: 45,
-            lessons: ['Archival Research', 'Historical Documents', 'Ship Identification', 'Timeline Construction'],
-          ),
-          CourseModule(
-            id: 'site_mapping',
-            title: 'Archaeological Site Mapping',
-            description: 'Create detailed maps of naval archaeological sites',
-            duration: 55,
-            lessons: ['Mapping Techniques', 'GPS Integration', 'Photogrammetry', 'Digital Documentation'],
-          ),
-        ];
-        break;
-      case 'war_history':
-        modules = [
-          CourseModule(
-            id: 'pacific_battles',
-            title: 'Pacific Theater Naval Battles',
-            description: 'Study major naval engagements in the Pacific',
-            duration: 30,
-            lessons: ['Pearl Harbor', 'Midway', 'Leyte Gulf', 'Guadalcanal Campaign'],
-          ),
-          CourseModule(
-            id: 'ship_identification',
-            title: 'WWII Ship Identification',
-            description: 'Identify different classes of WWII naval vessels',
-            duration: 25,
-            lessons: ['Destroyer Classes', 'Cruiser Types', 'Battleship Designs', 'Aircraft Carriers'],
-          ),
-        ];
-        break;
-      case 'commercial_diving':
-        modules = [
-          CourseModule(
-            id: 'industrial_operations',
-            title: 'Industrial Diving Operations',
-            description: 'Commercial diving for industrial applications',
-            duration: 100,
-            lessons: ['Welding Underwater', 'Inspection Techniques', 'Maintenance Procedures', 'Safety Standards'],
-          ),
-          CourseModule(
-            id: 'surface_supply',
-            title: 'Surface Supply Systems',
-            description: 'Operation of surface-supplied diving equipment',
-            duration: 80,
-            lessons: ['Compressor Systems', 'Umbilical Management', 'Communications', 'Emergency Procedures'],
+            assessments: ['Overhead Environment Test'],
           ),
         ];
         break;
@@ -758,6 +428,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Proper setup and configuration of sidemount gear',
             duration: 50,
             lessons: ['Harness Setup', 'Tank Positioning', 'Regulator Configuration', 'Buoyancy Management'],
+            assessments: ['Equipment Configuration Test'],
           ),
           CourseModule(
             id: 'skills_development',
@@ -765,6 +436,47 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Master essential sidemount diving skills',
             duration: 60,
             lessons: ['Tank Handling', 'Trim Control', 'Gas Switching', 'Emergency Procedures'],
+            assessments: ['Skills Demonstration'],
+          ),
+        ];
+        break;
+      case 'cave_rescue':
+        modules = [
+          CourseModule(
+            id: 'rescue_planning',
+            title: 'Cave Rescue Planning',
+            description: 'Plan and execute cave rescue operations',
+            duration: 80,
+            lessons: ['Incident Assessment', 'Resource Management', 'Risk Analysis', 'Operational Planning'],
+            assessments: ['Rescue Planning Exam'],
+          ),
+          CourseModule(
+            id: 'victim_recovery',
+            title: 'Victim Recovery Techniques',
+            description: 'Specialized techniques for cave victim recovery',
+            duration: 90,
+            lessons: ['Patient Assessment', 'Evacuation Methods', 'Medical Considerations', 'Team Coordination'],
+            assessments: ['Recovery Techniques Assessment'],
+          ),
+        ];
+        break;
+      case 'cave_survey':
+        modules = [
+          CourseModule(
+            id: 'survey_techniques',
+            title: 'Cave Survey Methods',
+            description: 'Professional cave surveying and mapping',
+            duration: 60,
+            lessons: ['Survey Instruments', 'Measurement Techniques', 'Data Recording', 'Quality Control'],
+            assessments: ['Survey Methods Test'],
+          ),
+          CourseModule(
+            id: 'mapping_software',
+            title: 'Digital Cave Mapping',
+            description: 'Use software to create detailed cave maps',
+            duration: 50,
+            lessons: ['Survey Software', 'Data Input', '3D Modeling', 'Map Production'],
+            assessments: ['Digital Mapping Project'],
           ),
         ];
         break;
@@ -776,6 +488,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Welcome to your diving course',
             duration: 20,
             lessons: ['Overview', 'Safety Guidelines', 'Course Objectives', 'Assessment Criteria'],
+            assessments: ['Course Introduction Quiz'],
           ),
           CourseModule(
             id: 'fundamentals',
@@ -783,6 +496,7 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             description: 'Basic diving knowledge and skills',
             duration: 45,
             lessons: ['Breathing Techniques', 'Equipment Basics', 'Safety Procedures', 'Environmental Awareness'],
+            assessments: ['Fundamentals Exam'],
           ),
         ];
     }
@@ -1552,54 +1266,150 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
               ),
             ),
             
-            // Lessons dropdown
-            if (isExpanded && module.lessons.isNotEmpty)
+            // Lessons and Assessments dropdown
+            if (isExpanded && (module.lessons.isNotEmpty || module.assessments.isNotEmpty))
               Container(
                 padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                 child: Column(
-                  children: module.lessons.map((lesson) => 
-                    Container(
-                      margin: const EdgeInsets.only(bottom: 8),
-                      padding: const EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.1),
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          color: Colors.white.withOpacity(0.1),
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            width: 6,
-                            height: 6,
-                            decoration: BoxDecoration(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Lessons section
+                    if (module.lessons.isNotEmpty) ...[
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.play_circle_outline,
                               color: Colors.blue.withOpacity(0.8),
-                              shape: BoxShape.circle,
+                              size: 16,
                             ),
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Text(
-                              lesson,
+                            const SizedBox(width: 8),
+                            Text(
+                              'Lessons',
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.white.withOpacity(0.8),
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white.withOpacity(0.9),
                               ),
                             ),
-                          ),
-                                                     GestureDetector(
-                             onTap: () => _startLesson(module, lesson),
-                             child: Icon(
-                               Icons.play_circle_outline,
-                               color: Colors.white.withOpacity(0.6),
-                               size: 16,
-                             ),
-                           ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ).toList(),
+                      ...module.lessons.map((lesson) => 
+                        GestureDetector(
+                          onTap: () => _startLesson(module, lesson),
+                          child: Container(
+                            margin: const EdgeInsets.only(bottom: 8),
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: Colors.white.withOpacity(0.1),
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 6,
+                                  height: 6,
+                                  decoration: BoxDecoration(
+                                    color: Colors.blue.withOpacity(0.8),
+                                    shape: BoxShape.circle,
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Text(
+                                    lesson,
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white.withOpacity(0.8),
+                                    ),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.play_circle_outline,
+                                  color: Colors.white.withOpacity(0.6),
+                                  size: 16,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ).toList(),
+                    ],
+                    
+                    // Assessments section
+                    if (module.assessments.isNotEmpty) ...[
+                      if (module.lessons.isNotEmpty) const SizedBox(height: 12),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.quiz,
+                              color: Colors.orange.withOpacity(0.8),
+                              size: 16,
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              'Assessments',
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white.withOpacity(0.9),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      ...module.assessments.map((assessment) => 
+                        GestureDetector(
+                          onTap: () => _startAssessment(module, assessment),
+                          child: Container(
+                            margin: const EdgeInsets.only(bottom: 8),
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: Colors.orange.withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: Colors.orange.withOpacity(0.2),
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                Container(
+                                  width: 6,
+                                  height: 6,
+                                  decoration: BoxDecoration(
+                                    color: Colors.orange.withOpacity(0.8),
+                                    shape: BoxShape.circle,
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: Text(
+                                    assessment,
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      color: Colors.white.withOpacity(0.8),
+                                    ),
+                                  ),
+                                ),
+                                Icon(
+                                  Icons.quiz_outlined,
+                                  color: Colors.orange.withOpacity(0.8),
+                                  size: 16,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ).toList(),
+                    ],
+                  ],
                 ),
               ),
           ],
@@ -1623,6 +1433,34 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
         pageBuilder: (context, animation, secondaryAnimation) =>
             ModuleLessonScreen(
               moduleId: module.id,
+              moduleTitle: module.title,
+              courseTitle: selectedCourse!.title,
+            ),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+
+          var tween = Tween(begin: begin, end: end).chain(
+            CurveTween(curve: curve),
+          );
+
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        },
+        transitionDuration: const Duration(milliseconds: 600),
+      ),
+    );
+  }
+
+  void _startAssessment(CourseModule module, String assessment) {
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            AssessmentViewerScreen(
+              assessmentTitle: assessment,
               moduleTitle: module.title,
               courseTitle: selectedCourse!.title,
             ),

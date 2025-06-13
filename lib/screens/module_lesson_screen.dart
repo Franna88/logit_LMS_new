@@ -5,16 +5,36 @@ import 'dart:ui';
 import 'dart:math';
 import '../widgets/bubble_animation.dart';
 
+class ContentBlock {
+  final String type; // 'header', 'paragraph', 'image', 'video', 'bullet_list', 'quote', 'code'
+  final String content;
+  final String? subtitle;
+  final List<String>? items;
+  final String? imageUrl;
+  final String? videoUrl;
+  final String? caption;
+
+  ContentBlock({
+    required this.type,
+    required this.content,
+    this.subtitle,
+    this.items,
+    this.imageUrl,
+    this.videoUrl,
+    this.caption,
+  });
+}
+
 class LessonContent {
   final String title;
-  final String content;
-  final String? imageUrl;
+  final String description;
+  final List<ContentBlock> contentBlocks;
   final List<String> keyPoints;
 
   LessonContent({
     required this.title,
-    required this.content,
-    this.imageUrl,
+    required this.description,
+    required this.contentBlocks,
     required this.keyPoints,
   });
 }
@@ -118,224 +138,232 @@ class _ModuleLessonScreenState extends State<ModuleLessonScreen>
   }
 
   void _generateLessonContent() {
-    // Generate dummy lesson content based on module
-    switch (widget.moduleId) {
-      case 'theory_basics':
-        lessons = [
-          LessonContent(
-            title: 'Welcome to Diving Theory',
-            content: 'Welcome to your underwater adventure! Diving theory forms the foundation of safe diving practices. In this comprehensive presentation, you\'ll learn the essential principles that every diver must master before exploring the underwater world.',
-            keyPoints: [
-              'Understand basic diving physics',
-              'Learn essential safety protocols',
-              'Master fundamental diving skills',
-              'Prepare for underwater exploration'
+    // Generate rich dummy lesson content with various content blocks
+    lessons = [
+      LessonContent(
+        title: 'Welcome to ${widget.moduleTitle}',
+        description: 'This comprehensive lesson introduces you to the fundamental concepts and practical applications.',
+        contentBlocks: [
+          ContentBlock(
+            type: 'header',
+            content: 'Course Introduction',
+            subtitle: 'Getting started with your learning journey',
+          ),
+          ContentBlock(
+            type: 'paragraph',
+            content: 'Welcome to this comprehensive diving course! This lesson will introduce you to the fundamental concepts that form the foundation of safe and enjoyable diving. Whether you\'re a beginner or looking to advance your skills, this content has been carefully designed by certified instructors.',
+          ),
+          ContentBlock(
+            type: 'image',
+            content: 'Course Overview',
+            imageUrl: 'assets/images/course_intro.jpg',
+            caption: 'Professional diving instruction with modern equipment and safety protocols',
+          ),
+          ContentBlock(
+            type: 'video',
+            content: 'Introduction Video',
+            videoUrl: 'https://example.com/intro_video.mp4',
+            caption: 'Watch this 3-minute introduction to understand what you\'ll learn in this course',
+          ),
+          ContentBlock(
+            type: 'bullet_list',
+            content: 'What You\'ll Learn',
+            items: [
+              'Essential safety protocols and procedures',
+              'Proper equipment usage and maintenance',
+              'Underwater navigation and communication',
+              'Emergency response and rescue techniques',
+              'Environmental awareness and conservation'
             ],
           ),
-          LessonContent(
-            title: 'Understanding Water Pressure',
+        ],
+        keyPoints: [
+          'Safety is the top priority in all diving activities',
+          'Proper training builds confidence and competence',
+          'Equipment knowledge is essential for safe diving',
+          'Environmental protection is every diver\'s responsibility'
+        ],
+      ),
+      LessonContent(
+        title: 'Fundamental Principles',
+        description: 'Understanding the basic principles that govern underwater activities and safety.',
+        contentBlocks: [
+          ContentBlock(
+            type: 'header',
+            content: 'Physics of Diving',
+            subtitle: 'How pressure and depth affect your dive',
+          ),
+          ContentBlock(
+            type: 'paragraph',
             content: 'As you descend underwater, water pressure increases dramatically. For every 10 meters (33 feet) of depth, pressure increases by 1 atmosphere. This fundamental principle affects every aspect of diving from your equipment to your body.',
-            keyPoints: [
-              'Pressure doubles at 10m depth',
-              'Affects air spaces in your body',
+          ),
+          ContentBlock(
+            type: 'quote',
+            content: 'Understanding pressure is the key to safe diving. Every meter of depth brings new challenges and considerations.',
+            subtitle: '- Dive Physics Expert',
+          ),
+          ContentBlock(
+            type: 'image',
+            content: 'Pressure vs Depth Chart',
+            imageUrl: 'assets/images/pressure_chart.jpg',
+            caption: 'Visual representation of how pressure increases with depth',
+          ),
+          ContentBlock(
+            type: 'bullet_list',
+            content: 'Pressure Effects',
+            items: [
+              'Air spaces in your body compress',
               'Equipment must handle pressure changes',
-              'Critical for safety planning'
+              'Gas consumption increases with depth',
+              'Buoyancy changes as you descend'
             ],
           ),
-          LessonContent(
-            title: 'Breathing Underwater',
-            content: 'Proper breathing technique is crucial for safe diving. Never hold your breath while ascending, as expanding air in your lungs can cause serious injury. Breathe slowly, deeply, and continuously.',
-            keyPoints: [
-              'Never hold your breath while ascending',
-              'Breathe slowly and deeply',
-              'Continuous breathing prevents lung injury',
-              'Helps maintain buoyancy control'
+        ],
+        keyPoints: [
+          'Pressure doubles at 10m depth',
+          'Affects air spaces in your body',
+          'Equipment must handle pressure changes',
+          'Critical for safety planning'
+        ],
+      ),
+      LessonContent(
+        title: 'Practical Applications',
+        description: 'Applying theoretical knowledge to real-world diving scenarios.',
+        contentBlocks: [
+          ContentBlock(
+            type: 'header',
+            content: 'Equipment Setup',
+            subtitle: 'Proper configuration for safe diving',
+          ),
+          ContentBlock(
+            type: 'video',
+            content: 'Equipment Assembly Demo',
+            videoUrl: 'https://example.com/equipment_setup.mp4',
+            caption: 'Step-by-step guide to setting up your diving equipment',
+          ),
+          ContentBlock(
+            type: 'paragraph',
+            content: 'Proper equipment setup is crucial for safe diving. Your gear is your lifeline underwater, and understanding each piece of equipment and how it works together is essential for safe and enjoyable diving experiences.',
+          ),
+          ContentBlock(
+            type: 'image',
+            content: 'Complete Diving Setup',
+            imageUrl: 'assets/images/diving_equipment.jpg',
+            caption: 'Professional diving equipment properly assembled and ready for use',
+          ),
+          ContentBlock(
+            type: 'bullet_list',
+            content: 'Pre-Dive Checklist',
+            items: [
+              'Check all connections and seals',
+              'Test regulator breathing',
+              'Verify BCD inflation/deflation',
+              'Confirm dive computer operation',
+              'Review emergency procedures'
             ],
           ),
-          LessonContent(
-            title: 'Buoyancy Principles',
-            content: 'Neutral buoyancy allows you to hover motionlessly in the water without sinking or floating. This skill is essential for protecting marine life and conserving energy during your dive.',
-            keyPoints: [
-              'Neutral buoyancy = no sinking or floating',
-              'Protects coral reefs and marine life',
-              'Conserves energy and air',
-              'Improves underwater photography'
+        ],
+        keyPoints: [
+          'Learn about basic diving gear',
+          'Understand equipment functions',
+          'Master pre-dive equipment checks',
+          'Ensure proper equipment maintenance'
+        ],
+      ),
+      LessonContent(
+        title: 'Advanced Techniques',
+        description: 'Developing advanced skills for specialized diving activities.',
+        contentBlocks: [
+          ContentBlock(
+            type: 'header',
+            content: 'Navigation Skills',
+            subtitle: 'Finding your way underwater',
+          ),
+          ContentBlock(
+            type: 'paragraph',
+            content: 'Underwater navigation is a critical skill that combines compass use, natural navigation techniques, and modern technology. Whether you\'re exploring a new dive site or returning to the boat, proper navigation ensures safety and confidence.',
+          ),
+          ContentBlock(
+            type: 'image',
+            content: 'Underwater Compass',
+            imageUrl: 'assets/images/diving_compass.jpg',
+            caption: 'Professional diving compass used for underwater navigation',
+          ),
+          ContentBlock(
+            type: 'video',
+            content: 'Navigation Techniques',
+            videoUrl: 'https://example.com/navigation_demo.mp4',
+            caption: 'Learn compass navigation and natural navigation techniques',
+          ),
+          ContentBlock(
+            type: 'bullet_list',
+            content: 'Navigation Methods',
+            items: [
+              'Compass bearing navigation',
+              'Natural landmark recognition',
+              'Sand ripple pattern reading',
+              'Light and shadow tracking',
+              'Current direction awareness'
             ],
           ),
-          LessonContent(
-            title: 'Deep Water Safety',
-            content: 'As we reach deeper waters, additional safety considerations become crucial. Understanding nitrogen narcosis, decompression limits, and emergency procedures ensures safe exploration of the underwater realm.',
-            keyPoints: [
-              'Monitor depth and bottom time',
-              'Recognize nitrogen narcosis symptoms',
-              'Plan decompression stops',
-              'Practice emergency ascent procedures'
+        ],
+        keyPoints: [
+          'Read compass bearings accurately',
+          'Follow reciprocal headings',
+          'Account for magnetic declination',
+          'Practice in various conditions'
+        ],
+      ),
+      LessonContent(
+        title: 'Mastery and Certification',
+        description: 'Demonstrating competency and preparing for certification.',
+        contentBlocks: [
+          ContentBlock(
+            type: 'header',
+            content: 'Final Assessment',
+            subtitle: 'Demonstrating your skills and knowledge',
+          ),
+          ContentBlock(
+            type: 'paragraph',
+            content: 'Congratulations on reaching the final lesson! You have demonstrated mastery of essential diving concepts and are ready to apply these skills in real diving situations. This lesson prepares you for your final assessment and certification.',
+          ),
+          ContentBlock(
+            type: 'quote',
+            content: 'Certification is not the end of learning, but the beginning of a lifetime of underwater exploration and discovery.',
+            subtitle: '- Master Instructor',
+          ),
+          ContentBlock(
+            type: 'image',
+            content: 'Certification Ceremony',
+            imageUrl: 'assets/images/certification.jpg',
+            caption: 'Celebrating successful completion of diving certification',
+          ),
+          ContentBlock(
+            type: 'bullet_list',
+            content: 'Certification Requirements',
+            items: [
+              'Complete all theoretical modules',
+              'Pass written examinations',
+              'Demonstrate practical skills',
+              'Complete open water dives',
+              'Show safety awareness'
             ],
           ),
-        ];
-        break;
-      case 'equipment':
-        lessons = [
-          LessonContent(
-            title: 'Essential Diving Equipment',
-            content: 'Welcome to the world of diving equipment! Your gear is your lifeline underwater. Understanding each piece of equipment and how it works together is crucial for safe and enjoyable diving experiences.',
-            keyPoints: [
-              'Learn about basic diving gear',
-              'Understand equipment functions',
-              'Master pre-dive equipment checks',
-              'Ensure proper equipment maintenance'
-            ],
+          ContentBlock(
+            type: 'video',
+            content: 'Certification Process',
+            videoUrl: 'https://example.com/certification_process.mp4',
+            caption: 'Understanding the certification process and what comes next',
           ),
-          LessonContent(
-            title: 'Mask and Snorkel',
-            content: 'Your diving mask creates an air space that allows you to see clearly underwater. The snorkel enables surface breathing while floating face-down. Proper fit is essential for comfort and safety.',
-            keyPoints: [
-              'Mask creates air space for clear vision',
-              'Must fit properly to prevent leaking',
-              'Snorkel allows surface breathing',
-              'Regular maintenance required'
-            ],
-          ),
-          LessonContent(
-            title: 'Scuba Tank and Regulator',
-            content: 'The scuba tank stores compressed air, while the regulator reduces high-pressure air to breathable pressure. Understanding this life-support system is critical for every diver.',
-            keyPoints: [
-              'Tank stores compressed breathing air',
-              'Regulator reduces pressure safely',
-              'Regular inspection mandatory',
-              'Your underwater life support'
-            ],
-          ),
-          LessonContent(
-            title: 'BCD and Wetsuit',
-            content: 'The Buoyancy Control Device (BCD) helps you achieve neutral buoyancy. Wetsuits provide thermal protection and some buoyancy. Both are essential for comfortable diving.',
-            keyPoints: [
-              'BCD controls your buoyancy',
-              'Wetsuit provides thermal protection',
-              'Proper sizing crucial for effectiveness',
-              'Integrated safety features'
-            ],
-          ),
-          LessonContent(
-            title: 'Advanced Equipment Systems',
-            content: 'As you progress to deeper dives, additional equipment becomes essential. Dive computers, underwater lights, and safety signaling devices help ensure successful deep water exploration.',
-            keyPoints: [
-              'Dive computers monitor depth and time',
-              'Underwater lights essential for visibility',
-              'Safety devices for emergency situations',
-              'Regular equipment servicing required'
-            ],
-          ),
-        ];
-        break;
-      case 'pool_training':
-        lessons = [
-          LessonContent(
-            title: 'Pool Training Introduction',
-            content: 'Welcome to practical diving skills training! The pool provides a safe, controlled environment to master essential diving techniques before venturing into open water. Each skill builds upon the previous one.',
-            keyPoints: [
-              'Safe controlled learning environment',
-              'Build confidence gradually',
-              'Master essential safety skills',
-              'Prepare for open water diving'
-            ],
-          ),
-          LessonContent(
-            title: 'Mask Clearing Technique',
-            content: 'Learning to clear water from your mask is a fundamental skill. Tilt your head back slightly, press the top of the mask, and exhale through your nose to push water out the bottom.',
-            keyPoints: [
-              'Tilt head back slightly',
-              'Press top of mask seal',
-              'Exhale through nose',
-              'Practice until automatic'
-            ],
-          ),
-          LessonContent(
-            title: 'Regulator Recovery',
-            content: 'If your regulator comes out of your mouth, stay calm. Reach over your right shoulder to find it, or use the alternate air source. Take a small breath and clear any water before breathing normally.',
-            keyPoints: [
-              'Stay calm and controlled',
-              'Reach over right shoulder',
-              'Use alternate air if needed',
-              'Clear water before breathing'
-            ],
-          ),
-          LessonContent(
-            title: 'Controlled Emergency Swimming Ascent',
-            content: 'This skill teaches you to reach the surface safely if you run out of air. Swim up at a controlled rate while continuously exhaling to prevent lung expansion injuries.',
-            keyPoints: [
-              'Controlled ascent rate',
-              'Continuous exhaling essential',
-              'Look up while ascending',
-              'Emergency skill - practice regularly'
-            ],
-          ),
-          LessonContent(
-            title: 'Advanced Pool Skills',
-            content: 'Complete your pool training with advanced skills including buddy breathing, underwater navigation, and emergency response procedures. These skills prepare you for any situation in open water.',
-            keyPoints: [
-              'Master buddy breathing techniques',
-              'Practice underwater navigation',
-              'Learn emergency response procedures',
-              'Demonstrate skill mastery'
-            ],
-          ),
-        ];
-        break;
-      default:
-        lessons = [
-          LessonContent(
-            title: 'Welcome to Your Diving Module',
-            content: 'Welcome to this comprehensive diving presentation! This module will take you through essential concepts and skills step by step. Each section builds upon the previous one to ensure thorough understanding.',
-            keyPoints: [
-              'Follow the presentation in order',
-              'Take notes on key concepts',
-              'Ask questions when needed',
-              'Safety is always the top priority'
-            ],
-          ),
-          LessonContent(
-            title: 'Fundamental Principles',
-            content: 'Understanding the basic principles of diving physics and physiology is essential for safe diving. This foundation will support all your future diving adventures and advanced training.',
-            keyPoints: [
-              'Learn diving physics basics',
-              'Understand human physiology underwater',
-              'Master safety fundamentals',
-              'Build confidence in the water'
-            ],
-          ),
-          LessonContent(
-            title: 'Practical Applications',
-            content: 'Now we apply theoretical knowledge to real-world diving scenarios. Practice makes perfect, and understanding how to apply concepts in actual diving situations is crucial for safety and enjoyment.',
-            keyPoints: [
-              'Apply theory to practice',
-              'Learn problem-solving skills',
-              'Develop situational awareness',
-              'Build muscle memory for safety'
-            ],
-          ),
-          LessonContent(
-            title: 'Advanced Techniques',
-            content: 'As your skills develop, more advanced techniques become accessible. These skills will enhance your diving experience and prepare you for specialized diving activities.',
-            keyPoints: [
-              'Master advanced diving skills',
-              'Explore specialized techniques',
-              'Increase diving capabilities',
-              'Prepare for certification tests'
-            ],
-          ),
-          LessonContent(
-            title: 'Mastery and Certification',
-            content: 'Congratulations on reaching the deepest level of this module! You have demonstrated mastery of essential diving concepts and are ready to apply these skills in real diving situations.',
-            keyPoints: [
-              'Demonstrate skill mastery',
-              'Complete final assessments',
-              'Prepare for open water diving',
-              'Continue lifelong learning'
-            ],
-          ),
-        ];
-    }
+        ],
+        keyPoints: [
+          'Demonstrate skill mastery',
+          'Complete final assessments',
+          'Prepare for open water diving',
+          'Continue lifelong learning'
+        ],
+      ),
+    ];
   }
 
   void _updateProgress() {
@@ -963,24 +991,8 @@ class _ModuleLessonScreenState extends State<ModuleLessonScreen>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.1),
-                          borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: Colors.white.withOpacity(0.2),
-                          ),
-                        ),
-                        child: Text(
-                          lesson.content,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            height: 1.6,
-                          ),
-                        ),
-                      ),
+                      // Display content blocks
+                      ...lesson.contentBlocks.map((block) => _buildContentBlock(block)),
                       
                       const SizedBox(height: 24),
                       
@@ -1176,6 +1188,315 @@ class _ModuleLessonScreenState extends State<ModuleLessonScreen>
         .animate()
         .scale(delay: const Duration(milliseconds: 200))
         .shimmer(duration: const Duration(seconds: 2));
+  }
+
+  Widget _buildContentBlock(ContentBlock block) {
+    switch (block.type) {
+      case 'header':
+        return Container(
+          margin: const EdgeInsets.only(bottom: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                block.content,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              if (block.subtitle != null) ...[
+                const SizedBox(height: 4),
+                Text(
+                  block.subtitle!,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white.withOpacity(0.8),
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        );
+      
+      case 'paragraph':
+        return Container(
+          margin: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: Colors.white.withOpacity(0.2),
+            ),
+          ),
+          child: Text(
+            block.content,
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+              height: 1.6,
+            ),
+          ),
+        );
+      
+      case 'image':
+        return Container(
+          margin: const EdgeInsets.only(bottom: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.1),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: Colors.white.withOpacity(0.2),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.image,
+                      size: 48,
+                      color: Colors.white.withOpacity(0.5),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      block.content,
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white.withOpacity(0.8),
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      '[Placeholder Image]',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white.withOpacity(0.5),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              if (block.caption != null) ...[
+                const SizedBox(height: 8),
+                Text(
+                  block.caption!,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white.withOpacity(0.7),
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        );
+      
+      case 'video':
+        return Container(
+          margin: const EdgeInsets.only(bottom: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: Colors.white.withOpacity(0.2),
+                  ),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: const Icon(
+                        Icons.play_arrow,
+                        size: 32,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    Text(
+                      block.content,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      '[Video Player]',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white.withOpacity(0.5),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              if (block.caption != null) ...[
+                const SizedBox(height: 8),
+                Text(
+                  block.caption!,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white.withOpacity(0.7),
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        );
+      
+      case 'bullet_list':
+        return Container(
+          margin: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.blue.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: Colors.blue.withOpacity(0.3),
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                block.content,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(height: 12),
+              ...block.items!.map((item) => Container(
+                margin: const EdgeInsets.only(bottom: 8),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      margin: const EdgeInsets.only(top: 6),
+                      width: 6,
+                      height: 6,
+                      decoration: BoxDecoration(
+                        color: Colors.blue,
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        item,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          height: 1.4,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )),
+            ],
+          ),
+        );
+      
+      case 'quote':
+        return Container(
+          margin: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.orange.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: Colors.orange.withOpacity(0.3),
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(
+                    Icons.format_quote,
+                    size: 24,
+                    color: Colors.orange,
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      block.content,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                        height: 1.5,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              if (block.subtitle != null) ...[
+                const SizedBox(height: 8),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    block.subtitle!,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white.withOpacity(0.8),
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ],
+            ],
+          ),
+        );
+      
+      default:
+        return Container(
+          margin: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: Colors.white.withOpacity(0.2),
+            ),
+          ),
+          child: Text(
+            block.content,
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+              height: 1.6,
+            ),
+          ),
+        );
+    }
   }
 }
 

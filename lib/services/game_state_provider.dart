@@ -11,14 +11,17 @@ class GameStateProvider extends ChangeNotifier {
   double _boatX = 0.5; // Starting position (center of map)
   double _boatY = 0.8; // Starting position (bottom of map)
   double _playerMoney = 500.0; // Starting money
+  String? _selectedLearningHouse; // Store selected learning house
 
   // Getters
   List<POI> get pois => _pois;
+  List<POI> get pointsOfInterest => _pois; // Alias for compatibility
   POI? get selectedPOI => _selectedPOI;
   bool get isBoatMoving => _isBoatMoving;
   double get boatX => _boatX;
   double get boatY => _boatY;
   double get playerMoney => _playerMoney;
+  String? get selectedLearningHouse => _selectedLearningHouse;
 
   GameStateProvider() {
     _initializeGame();
@@ -490,6 +493,29 @@ class GameStateProvider extends ChangeNotifier {
     await _saveGameState();
   }
 
+  Future<void> moveBoatToPosition(double x, double y) async {
+    if (_isBoatMoving) return;
+    
+    _isBoatMoving = true;
+    notifyListeners();
+
+    // Wait for animation to complete
+    await Future.delayed(const Duration(milliseconds: 3000));
+    
+    _boatX = x;
+    _boatY = y;
+    _isBoatMoving = false;
+    notifyListeners();
+    
+    await _saveGameState();
+  }
+
+  void setSelectedLearningHouse(String learningHouseId) {
+    _selectedLearningHouse = learningHouseId;
+    notifyListeners();
+    _saveGameState();
+  }
+
   bool canPurchaseCourse(DivingCourse course) {
     return _playerMoney >= course.price && !course.isPurchased;
   }
@@ -537,5 +563,102 @@ class GameStateProvider extends ChangeNotifier {
     _playerMoney += amount;
     notifyListeners();
     _saveGameState();
+  }
+
+  // Content Dev methods
+  List<DivingCourse> getAllCourses() {
+    List<DivingCourse> allCourses = [];
+    for (POI poi in _pois) {
+      allCourses.addAll(poi.courses);
+    }
+    return allCourses;
+  }
+
+  void addCustomCourse(DivingCourse course) {
+    // For now, add to the first POI as a placeholder
+    // In a real implementation, this would be assigned via POI assignment screen
+    if (_pois.isNotEmpty) {
+      _pois[0].courses.add(course);
+      notifyListeners();
+      _saveGameState();
+    }
+  }
+
+  void updatePOICourses(String poiId, List<String> courseIds) {
+    // Find the POI
+    POI? targetPOI;
+    for (POI poi in _pois) {
+      if (poi.id == poiId) {
+        targetPOI = poi;
+        break;
+      }
+    }
+    
+    if (targetPOI == null) return;
+
+    // Get all available courses
+    List<DivingCourse> allCourses = getAllCourses();
+    
+    // Clear current courses and add selected ones
+    targetPOI.courses.clear();
+    for (String courseId in courseIds) {
+      DivingCourse? course = allCourses.firstWhere(
+        (c) => c.id == courseId,
+        orElse: () => allCourses.isNotEmpty ? allCourses.first : DivingCourse(
+          id: courseId,
+          title: 'Unknown Course',
+          description: 'Course not found',
+          price: 0.0,
+          difficulty: 'Beginner',
+          duration: 30,
+          topics: [],
+          iconPath: 'assets/icons/diving_icon.png',
+        ),
+      );
+      targetPOI.courses.add(course);
+    }
+    
+    notifyListeners();
+    _saveGameState();
+  }
+
+  void addCourseToSpecificPOI(DivingCourse course, String poiName) {
+    // Find the POI by name
+    POI? targetPOI;
+    for (POI poi in _pois) {
+      if (poi.name == poiName) {
+        targetPOI = poi;
+        break;
+      }
+    }
+    
+    if (targetPOI != null) {
+      targetPOI.courses.add(course);
+      notifyListeners();
+      _saveGameState();
+    }
+  }
+
+  void updateCourse(DivingCourse updatedCourse, String poiName) {
+    // Find the POI by name
+    POI? targetPOI;
+    for (POI poi in _pois) {
+      if (poi.name == poiName) {
+        targetPOI = poi;
+        break;
+      }
+    }
+    
+    if (targetPOI != null) {
+      // Find and update the course
+      for (int i = 0; i < targetPOI.courses.length; i++) {
+        if (targetPOI.courses[i].id == updatedCourse.id) {
+          targetPOI.courses[i] = updatedCourse;
+          break;
+        }
+      }
+      notifyListeners();
+      _saveGameState();
+    }
   }
 } 

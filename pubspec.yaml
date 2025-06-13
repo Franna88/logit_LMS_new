@@ -103,6 +103,7 @@ flutter:
   # Assets for the diving game
   assets:
     - assets/images/
+    - assets/images/diving_houses/
     - assets/icons/
     - assets/animations/
 

@@ -1,0 +1,586 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../services/game_state_provider.dart';
+import '../../models/diving_course.dart';
+import '../../models/content_dev/module.dart';
+import '../../models/content_dev/lesson.dart';
+import '../../models/content_dev/assessment.dart';
+import 'course_modules_builder.dart';
+
+class CourseBuilderScreen extends StatefulWidget {
+  final DivingCourse? existingCourse;
+  
+  const CourseBuilderScreen({super.key, this.existingCourse});
+
+  @override
+  State<CourseBuilderScreen> createState() => _CourseBuilderScreenState();
+}
+
+class _CourseBuilderScreenState extends State<CourseBuilderScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _titleController = TextEditingController();
+  final _descriptionController = TextEditingController();
+  final _priceController = TextEditingController();
+  final _durationController = TextEditingController();
+  
+  String _selectedDifficulty = 'Beginner';
+  String? _selectedPOI;
+  List<String> _topics = [];
+  final _topicController = TextEditingController();
+  
+  final List<String> _difficulties = ['Beginner', 'Intermediate', 'Advanced'];
+  final List<String> _availableTopics = [
+    'Equipment Usage',
+    'Safety Procedures',
+    'Underwater Navigation',
+    'Marine Life',
+    'Underwater Photography',
+    'Wreck Diving',
+    'Cave Diving',
+    'Deep Diving',
+    'Night Diving',
+    'Rescue Techniques',
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.existingCourse != null) {
+      _populateExistingCourse();
+    }
+  }
+
+  void _populateExistingCourse() {
+    final course = widget.existingCourse!;
+    _titleController.text = course.title;
+    _descriptionController.text = course.description;
+    _priceController.text = course.price.toString();
+    _durationController.text = course.duration.toString();
+    _selectedDifficulty = course.difficulty;
+    _topics = List.from(course.topics);
+    
+    // Find which POI contains this course
+    final gameState = Provider.of<GameStateProvider>(context, listen: false);
+    for (var poi in gameState.pointsOfInterest) {
+      if (poi.courses.any((c) => c.id == course.id)) {
+        _selectedPOI = poi.name;
+        break;
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _titleController.dispose();
+    _descriptionController.dispose();
+    _priceController.dispose();
+    _durationController.dispose();
+    _topicController.dispose();
+    super.dispose();
+  }
+
+  void _addTopic(String topic) {
+    if (topic.isNotEmpty && !_topics.contains(topic)) {
+      setState(() {
+        _topics.add(topic);
+      });
+    }
+  }
+
+  void _removeTopic(String topic) {
+    setState(() {
+      _topics.remove(topic);
+    });
+  }
+
+  void _saveCourse() {
+    if (_formKey.currentState!.validate()) {
+      if (_selectedPOI == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Please select a POI for this course'),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return;
+      }
+
+      final course = DivingCourse(
+        id: widget.existingCourse?.id ?? DateTime.now().millisecondsSinceEpoch.toString(),
+        title: _titleController.text,
+        description: _descriptionController.text,
+        price: double.parse(_priceController.text),
+        difficulty: _selectedDifficulty,
+        duration: int.parse(_durationController.text),
+        topics: _topics,
+        iconPath: 'assets/icons/diving_icon.png',
+      );
+
+      final gameState = Provider.of<GameStateProvider>(context, listen: false);
+      
+      if (widget.existingCourse != null) {
+        // Update existing course
+        gameState.updateCourse(course, _selectedPOI!);
+      } else {
+        // Add new course to selected POI
+        gameState.addCourseToSpecificPOI(course, _selectedPOI!);
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Course "${course.title}" saved successfully!'),
+          backgroundColor: Colors.green,
+        ),
+      );
+
+      Navigator.of(context).pop();
+    }
+  }
+
+  void _continueBuilding() {
+    if (_formKey.currentState!.validate()) {
+      if (_selectedPOI == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Please select a POI for this course'),
+            backgroundColor: Colors.red,
+          ),
+        );
+        return;
+      }
+
+      final course = DivingCourse(
+        id: widget.existingCourse?.id ?? DateTime.now().millisecondsSinceEpoch.toString(),
+        title: _titleController.text,
+        description: _descriptionController.text,
+        price: double.parse(_priceController.text),
+        difficulty: _selectedDifficulty,
+        duration: int.parse(_durationController.text),
+        topics: _topics,
+        iconPath: 'assets/icons/diving_icon.png',
+      );
+
+      // Navigate to module builder
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => CourseModulesBuilder(
+            course: course,
+            selectedPOI: _selectedPOI!,
+            isNewCourse: widget.existingCourse == null,
+          ),
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final gameState = Provider.of<GameStateProvider>(context);
+    
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.existingCourse != null ? 'Edit Course' : 'Create New Course'),
+        backgroundColor: const Color(0xFF1E3A8A),
+        foregroundColor: Colors.white,
+        actions: [
+          TextButton(
+            onPressed: _saveCourse,
+            child: const Text(
+              'SAVE',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF1E3A8A),
+              Color(0xFF3B82F6),
+              Color(0xFF06B6D4),
+            ],
+          ),
+        ),
+        child: Form(
+          key: _formKey,
+          child: ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+              // Course Information Card
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Course Information',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1E3A8A),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        controller: _titleController,
+                        decoration: const InputDecoration(
+                          labelText: 'Course Title',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.school),
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a course title';
+                          }
+                          return null;
+                        },
+                      ),
+                      const SizedBox(height: 16),
+                      TextFormField(
+                        controller: _descriptionController,
+                        decoration: const InputDecoration(
+                          labelText: 'Course Description',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.description),
+                        ),
+                        maxLines: 3,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a course description';
+                          }
+                          return null;
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              
+              const SizedBox(height: 16),
+              
+              // POI Selection Card
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Point of Interest',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1E3A8A),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      DropdownButtonFormField<String>(
+                        value: _selectedPOI,
+                        decoration: const InputDecoration(
+                          labelText: 'Select POI',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.location_on),
+                        ),
+                        items: gameState.pointsOfInterest.map((poi) {
+                          return DropdownMenuItem(
+                            value: poi.name,
+                            child: Row(
+                              children: [
+                                Icon(_getPOIIcon(poi.type), size: 20),
+                                const SizedBox(width: 8),
+                                Text(poi.name),
+                              ],
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedPOI = value;
+                          });
+                        },
+                        validator: (value) {
+                          if (value == null) {
+                            return 'Please select a POI';
+                          }
+                          return null;
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              
+              const SizedBox(height: 16),
+              
+              // Course Details Card
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Course Details',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1E3A8A),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: _priceController,
+                              decoration: const InputDecoration(
+                                labelText: 'Price (R)',
+                                border: OutlineInputBorder(),
+                                prefixIcon: Icon(Icons.attach_money),
+                              ),
+                              keyboardType: TextInputType.number,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter a price';
+                                }
+                                if (double.tryParse(value) == null) {
+                                  return 'Please enter a valid number';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: TextFormField(
+                              controller: _durationController,
+                              decoration: const InputDecoration(
+                                labelText: 'Duration (minutes)',
+                                border: OutlineInputBorder(),
+                                prefixIcon: Icon(Icons.timer),
+                              ),
+                              keyboardType: TextInputType.number,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter duration';
+                                }
+                                if (int.tryParse(value) == null) {
+                                  return 'Please enter a valid number';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 16),
+                      DropdownButtonFormField<String>(
+                        value: _selectedDifficulty,
+                        decoration: const InputDecoration(
+                          labelText: 'Difficulty Level',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.trending_up),
+                        ),
+                        items: _difficulties.map((difficulty) {
+                          return DropdownMenuItem(
+                            value: difficulty,
+                            child: Text(difficulty),
+                          );
+                        }).toList(),
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedDifficulty = value!;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              
+              const SizedBox(height: 16),
+              
+              // Topics Card
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Course Topics',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF1E3A8A),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      
+                      // Add topic field
+                      Row(
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              controller: _topicController,
+                              decoration: const InputDecoration(
+                                labelText: 'Add Topic',
+                                border: OutlineInputBorder(),
+                                prefixIcon: Icon(Icons.topic),
+                              ),
+                              onFieldSubmitted: (value) {
+                                _addTopic(value);
+                                _topicController.clear();
+                              },
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          ElevatedButton(
+                            onPressed: () {
+                              _addTopic(_topicController.text);
+                              _topicController.clear();
+                            },
+                            child: const Text('Add'),
+                          ),
+                        ],
+                      ),
+                      
+                      const SizedBox(height: 16),
+                      
+                      // Available topics
+                      const Text(
+                        'Suggested Topics:',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 8),
+                      Wrap(
+                        spacing: 8,
+                        runSpacing: 4,
+                        children: _availableTopics.map((topic) {
+                          return FilterChip(
+                            label: Text(topic),
+                            selected: _topics.contains(topic),
+                            onSelected: (selected) {
+                              if (selected) {
+                                _addTopic(topic);
+                              } else {
+                                _removeTopic(topic);
+                              }
+                            },
+                          );
+                        }).toList(),
+                      ),
+                      
+                      const SizedBox(height: 16),
+                      
+                      // Selected topics
+                      if (_topics.isNotEmpty) ...[
+                        const Text(
+                          'Selected Topics:',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(height: 8),
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 4,
+                          children: _topics.map((topic) {
+                            return Chip(
+                              label: Text(topic),
+                              onDeleted: () => _removeTopic(topic),
+                              backgroundColor: const Color(0xFF1E3A8A),
+                              labelStyle: const TextStyle(color: Colors.white),
+                              deleteIconColor: Colors.white,
+                            );
+                          }).toList(),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
+              
+              const SizedBox(height: 32),
+              
+              // Action Buttons
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: _saveCourse,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF06B6D4),
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: const Text(
+                        'Save Course',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: _continueBuilding,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF3B82F6),
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: const Text(
+                        'Continue Building',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  IconData _getPOIIcon(String type) {
+    switch (type.toLowerCase()) {
+      case 'island':
+        return Icons.terrain;
+      case 'reef':
+        return Icons.waves;
+      case 'wreck':
+        return Icons.directions_boat;
+      case 'cave':
+        return Icons.location_city;
+      case 'deep_water':
+        return Icons.arrow_downward;
+      case 'forest':
+        return Icons.park;
+      case 'military_wreck':
+        return Icons.security;
+      case 'thermal':
+        return Icons.whatshot;
+      default:
+        return Icons.location_on;
+    }
+  }
+} 
