@@ -14,6 +14,7 @@ import '../widgets/poi_popup.dart';
 import '../widgets/purchase_dialog.dart';
 import 'course_modules_screen.dart';
 import 'hub_screen.dart';
+import 'learning_house_selection_screen.dart';
 
 class GameMapScreen extends StatefulWidget {
   const GameMapScreen({super.key});
@@ -246,6 +247,30 @@ class _GameMapScreenState extends State<GameMapScreen>
     );
   }
 
+  void _navigateBackToLearningHouses() {
+    Navigator.of(context).pushReplacement(
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const LearningHouseSelectionScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(-1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeOutCubic;
+
+          var tween = Tween(begin: begin, end: end).chain(
+            CurveTween(curve: curve),
+          );
+
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        },
+        transitionDuration: const Duration(milliseconds: 800),
+      ),
+    );
+  }
+
 
 
   String _getPOIImage(POI poi) {
@@ -362,7 +387,43 @@ class _GameMapScreenState extends State<GameMapScreen>
                 ),
               ),
 
-
+              // Back button
+              Positioned(
+                top: 50,
+                left: 20,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.7),
+                    borderRadius: BorderRadius.circular(25),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.3),
+                      width: 1,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        blurRadius: 10,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: _navigateBackToLearningHouses,
+                      borderRadius: BorderRadius.circular(25),
+                      child: const Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                          size: 24,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
 
               // POI markers
               ...gameState.pois.map((poi) {

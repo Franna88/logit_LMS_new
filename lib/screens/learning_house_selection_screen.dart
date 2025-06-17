@@ -9,6 +9,7 @@ import '../widgets/learning_house_popup.dart';
 import '../widgets/diver_buddy_button.dart';
 import '../widgets/wave_painter.dart';
 import 'game_map_screen.dart';
+import 'role_selection_screen.dart' as role_screen;
 
 class LearningHouseSelectionScreen extends StatefulWidget {
   const LearningHouseSelectionScreen({super.key});
@@ -233,6 +234,31 @@ class _LearningHouseSelectionScreenState extends State<LearningHouseSelectionScr
     );
   }
 
+  void _navigateBackToRoleSelection() {
+    Navigator.of(context).pushReplacement(
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const role_screen.RoleSelectionScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(
+            opacity: animation,
+            child: SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0, -0.3),
+                end: Offset.zero,
+              ).animate(CurvedAnimation(
+                parent: animation,
+                curve: Curves.easeOutBack,
+              )),
+              child: child,
+            ),
+          );
+        },
+        transitionDuration: const Duration(milliseconds: 800),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -259,6 +285,44 @@ class _LearningHouseSelectionScreenState extends State<LearningHouseSelectionScr
                       painter: WavePainter(_waveAnimationController.value),
                     );
                   },
+                ),
+              ),
+
+              // Back button
+              Positioned(
+                top: 50,
+                left: 20,
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.7),
+                    borderRadius: BorderRadius.circular(25),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.3),
+                      width: 1,
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        blurRadius: 10,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: _navigateBackToRoleSelection,
+                      borderRadius: BorderRadius.circular(25),
+                      child: const Padding(
+                        padding: EdgeInsets.all(12),
+                        child: Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                          size: 24,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
 
