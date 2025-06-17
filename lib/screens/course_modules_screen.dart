@@ -851,10 +851,10 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
             ),
 
             // Back button
-            SafeArea(
-              child: Positioned(
-                top: 16,
-                left: 16,
+            Positioned(
+              top: 16,
+              left: 16,
+              child: SafeArea(
                 child: IconButton(
                   onPressed: () => Navigator.of(context).pop(),
                   icon: Container(
@@ -878,32 +878,71 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
               position: _slideAnimation,
               child: Padding(
                 padding: const EdgeInsets.only(top: 80),
-                child: Row(
-                  children: [
-                    // Left side - Course List (40% width)
-                    Expanded(
-                      flex: 4,
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: FadeTransition(
-                          opacity: _fadeAnimation,
-                          child: _buildCoursesList(),
-                        ),
-                      ),
-                    ),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    // Adjust layout based on screen width
+                    final screenWidth = constraints.maxWidth;
+                    final useCompactLayout = screenWidth < 1200;
                     
-                    // Right side - Course Modules (60% width)
-                    Expanded(
-                      flex: 6,
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: FadeTransition(
-                          opacity: _fadeAnimation,
-                          child: _buildModulesList(),
-                        ),
-                      ),
-                    ),
-                  ],
+                    if (useCompactLayout) {
+                      // Single column layout for smaller screens
+                      return Column(
+                        children: [
+                          // Course List
+                          SizedBox(
+                            height: constraints.maxHeight * 0.4,
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: FadeTransition(
+                                opacity: _fadeAnimation,
+                                child: _buildCoursesList(),
+                              ),
+                            ),
+                          ),
+                          
+                          // Course Modules
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: FadeTransition(
+                                opacity: _fadeAnimation,
+                                child: _buildModulesList(),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    } else {
+                      // Side-by-side layout for larger screens
+                      return Row(
+                        children: [
+                          // Left side - Course List (35% width)
+                          Expanded(
+                            flex: 35,
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: FadeTransition(
+                                opacity: _fadeAnimation,
+                                child: _buildCoursesList(),
+                              ),
+                            ),
+                          ),
+                          
+                          // Right side - Course Modules (65% width)
+                          Expanded(
+                            flex: 65,
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: FadeTransition(
+                                opacity: _fadeAnimation,
+                                child: _buildModulesList(),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    }
+                  },
                 ),
               ),
             ),
@@ -1009,7 +1048,8 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
               
               // Filter Options
               Container(
-                height: 40,
+                height: 50,
+                padding: const EdgeInsets.symmetric(vertical: 5),
                 child: NotificationListener<ScrollNotification>(
                   onNotification: (ScrollNotification notification) {
                     return true;
@@ -1128,6 +1168,8 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
                         fontWeight: FontWeight.bold,
                         color: isSelected ? Colors.white : Colors.white.withOpacity(0.9),
                       ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(width: 8),
@@ -1185,23 +1227,30 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
                       ),
                     ),
                   ),
-                  const Spacer(),
+                  const SizedBox(width: 8),
+                  Expanded(child: Container()), // Spacer
                   if (!course.isPurchased)
-                    Text(
-                      'R${course.price.toStringAsFixed(2)}',
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: isSelected ? Colors.yellow : Colors.white.withOpacity(0.8),
+                    Flexible(
+                      child: Text(
+                        'R${course.price.toStringAsFixed(2)}',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: isSelected ? Colors.yellow : Colors.white.withOpacity(0.8),
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     )
                   else if (course.progress > 0 && !course.isCompleted)
-                    Text(
-                      '${(course.progress * 100).toInt()}%',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.blue.withOpacity(0.8),
+                    Flexible(
+                      child: Text(
+                        '${(course.progress * 100).toInt()}%',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.blue.withOpacity(0.8),
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                 ],
@@ -1669,12 +1718,13 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
         });
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        constraints: const BoxConstraints(minHeight: 32),
         decoration: BoxDecoration(
           color: isSelected 
               ? Colors.blue.withOpacity(0.8)
               : Colors.white.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: isSelected 
                 ? Colors.blue.withOpacity(0.8)
@@ -1685,31 +1735,36 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              filter,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-                color: isSelected ? Colors.white : Colors.white.withOpacity(0.8),
+            Flexible(
+              child: Text(
+                filter,
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                  color: isSelected ? Colors.white : Colors.white.withOpacity(0.8),
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
             if (count > 0) ...[
-              const SizedBox(width: 6),
+              const SizedBox(width: 4),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                constraints: const BoxConstraints(minWidth: 16),
                 decoration: BoxDecoration(
                   color: isSelected 
                       ? Colors.white.withOpacity(0.2)
                       : Colors.blue.withOpacity(0.3),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
                   '$count',
                   style: TextStyle(
-                    fontSize: 10,
+                    fontSize: 9,
                     fontWeight: FontWeight.w600,
                     color: isSelected ? Colors.white : Colors.white.withOpacity(0.9),
                   ),
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],

@@ -226,27 +226,33 @@ class _DivingBubbleTransitionState extends State<DivingBubbleTransition>
     return Stack(
       children: [
         widget.child,
-        // Initial full-screen bubble overlay
-        AnimatedBuilder(
-          animation: _bubbleOpacity,
-          builder: (context, child) {
-            return Opacity(
-              opacity: _bubbleOpacity.value,
-              child: const BubbleAnimation(
-                bubbleCount: 25,
-              ),
-            );
-          },
-        ),
-        // Continuous left-side bubbles
-        AnimatedBuilder(
-          animation: _continuousBubbleOpacity,
-          builder: (context, child) {
-            return Opacity(
-              opacity: _continuousBubbleOpacity.value,
-              child: const LeftSideBubbleAnimation(),
-            );
-          },
+        // Simplified bubble overlay without positioning issues
+        IgnorePointer(
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            child: AnimatedBuilder(
+              animation: _bubbleOpacity,
+              builder: (context, child) {
+                return Opacity(
+                  opacity: _bubbleOpacity.value * 0.3,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.cyan.withOpacity(0.1),
+                          Colors.blue.withOpacity(0.05),
+                          Colors.transparent,
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
         ),
       ],
     );
