@@ -1,0 +1,1634 @@
+{
+  "metadata": {
+    "source_file": "Offshore Diver Medic - Full Course Theory.xml",
+    "assessment_id": "ASS_20180906183245_6aea0179-b5d3-4224-8",
+    "assessment_code": "DMT Urine",
+    "total_score_items": 44,
+    "directly_linked_items": 0,
+    "related_items": 44,
+    "total_aspects": 0
+  },
+  "assessment": {
+    "type": "assessment",
+    "id": "ASS_20180906183245_6aea0179-b5d3-4224-8",
+    "description": "Skill sheet Urinary catherization (copy)",
+    "weight": "1",
+    "active": false,
+    "assessment_type": "wpa",
+    "norm": "7.5",
+    "code": "DMT Urine",
+    "sort_code": "1",
+    "instruction": "Time: 15 minutes Task: Perform male urinary catheterization Performance Objective: As an IMCA DMT perform this activity with a basic understanding of theory and practice principles, using RMA from a Company Medical Advisor. Use your helpful hints to ensure your equipment preparation is correct. Ensure you maintain ANTT during urinary catheter insertion. Remember to decontaminate work surface , dispose of equipment correctly and monitor the patient urine out put.",
+    "auto_activate": true,
+    "number_of_retests": "0",
+    "metadata": {
+      "element_tag": "t_Beoordeling",
+      "attributes": {
+        "RowNumber": "9",
+        "String": "INSERT INTO [t_Beoordeling] ([ID_Beoordeling],[ID_Module], [Omschrijving], [Weging], [Actief], [Type], [Norm], [Code], [Sortcode], [ShowNorm], [AllowSelfenrolment], [StudiePunt], [ToonOmschrijving], [InitialHighestValueChecked], [Instruction], [AutoActivate], [NumberOfRetests], [ShowFullScale])"
+      }
+    }
+  },
+  "aspects": [],
+  "score_items": {
+    "directly_linked": [],
+    "related": [
+      {
+        "type": "score_item",
+        "id": "ITM_20181003095725_6e4b326f-c4ee-47e1-9",
+        "aspect_id": "ASP_20181003092307_f64a9c63-e110-4674-b",
+        "description": "Simulate radio medical advise and describe the wound",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "2",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181003091059_3ee3df81-aec6-4107-8",
+        "aspect_id": "ASP_20181003090919_5174638c-9b79-4f36-a",
+        "description": "Identifies patient status (level of Consciousness)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "3",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005090826_53c632a0-aa17-4307-b",
+        "aspect_id": "ASP_20181005090230_ae0d1170-c199-47e6-a",
+        "description": "Pain assessment. Uses PQRSTA initially and ongoing to determine when DCI symptoms disappear",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "15",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005084355_267d90a8-b19c-4ff9-a",
+        "aspect_id": "ASP_20181005084355_a2b1520d-f29b-4ab0-9",
+        "description": "Simulate radio medical advise and describe the DCI, Francis Smith and dive profile",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "23",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005093923_4ebe1862-9831-4588-9",
+        "aspect_id": "ASP_20181005092003_400b493c-b80e-41b0-b",
+        "description": "Positioning of patient",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "34",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005092003_6f566bae-4f43-490e-a",
+        "aspect_id": "ASP_20181005092003_8bb19fa3-e614-46c7-9",
+        "description": "Simulate radio medical advise and need for Chest drain insertion",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "36",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005100257_626eb700-4ab5-461f-9",
+        "aspect_id": "ASP_20181005100257_c3abb188-e463-405d-b",
+        "description": "Identifies patient status (level of Consciousness)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "44",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005100257_a6842f6b-4c77-4b5f-9",
+        "aspect_id": "ASP_20181005100257_09482185-2a1d-43ee-a",
+        "description": "Simulate radio medical advise and describe the wound",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "52",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005102846_80cdba45-b428-4433-8",
+        "aspect_id": "ASP_20181005102743_8ec21486-a652-4f6e-9",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "55",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005102126_11fe00a5-b751-4e1c-a",
+        "aspect_id": "ASP_20181005101706_d14d202c-0e64-44ac-b",
+        "description": "Manage injury using sound practice of ANTT",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "63",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005103133_746b1221-43bc-45c1-9",
+        "aspect_id": "ASP_20181005103133_47de2e00-6989-4ce4-8",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "72",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005103133_b19493c3-5f2d-476c-b",
+        "aspect_id": "ASP_20181005103133_c160cecc-b534-4eeb-9",
+        "description": "Simulate radio medical advise",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "74",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_81f8c4b9-995a-4168-a",
+        "aspect_id": "ASP_20181005105041_0bdd9683-2c87-4528-9",
+        "description": "Simulate radio medical advise and describe the SAMPLE and Pain assessment",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "80",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_573b06e2-c862-4ced-9",
+        "aspect_id": "ASP_20181005105041_11941bb7-0d7b-4eb3-a",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "84",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_20346489-a769-47ae-9",
+        "aspect_id": "ASP_20181005105041_d7f60f5a-1018-4bf2-b",
+        "description": "N.O.I Has index of suspicion of cardiac problem due to general appearance of patient",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "94",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_ed51d5ba-5a66-4baa-8",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "Identifies patient status.",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "106",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_a93dc33e-4555-44ee-8",
+        "aspect_id": "ASP_20181005071734_dd23f538-40e6-4ecb-8",
+        "description": "Simulate radio medical advise and describe the burn",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "108",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131530_aad8c9ba-8fc6-41d4-8",
+        "aspect_id": "ASP_20181008131350_c430f295-3430-48f1-a",
+        "description": "Does 10 point burn assessment",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "115",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008132203_a13cc128-86d3-4caf-b",
+        "aspect_id": "ASP_20181008131819_a57f74f8-090d-4de4-b",
+        "description": "Mentions all 5, Pain assessments for RMA analgesia.",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "118",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094807_02adfda6-195e-40fa-8",
+        "aspect_id": "ASP_20181005094154_a62c80e5-df62-4bd0-a",
+        "description": "Gets scoop, uses it correctly with head blocks to secure patient and transfer him to clinic",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "121",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094154_762f6205-4872-4b09-b",
+        "aspect_id": "ASP_20181005094154_e163a7a3-8c22-453d-9",
+        "description": "Mentions doing Vitals, Pain assessment, SAMPLE and full Head to Toe exam and ongoing assessment",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "126",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094154_50266e6f-93d9-4612-b",
+        "aspect_id": "ASP_20181005094154_e8474fe5-d8b2-4803-b",
+        "description": "Simulate radio medical advise",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "130",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_7a3cbdaa-5c47-4b7b-a",
+        "aspect_id": "ASP_20180906183245_79d7037f-5675-49d9-8",
+        "description": "Sterile Gloves (mask and apron optional)",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "133",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_86826ea3-1889-4ed7-9",
+        "aspect_id": "ASP_20180906183245_79d7037f-5675-49d9-8",
+        "description": "Urinary catheter and collection bag",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "134",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_a3640cde-54ca-4711-9",
+        "aspect_id": "ASP_20180906183245_79d7037f-5675-49d9-8",
+        "description": "5 or 10 mL syringe and sterile water",
+        "weight": "1",
+        "sort_code": "5",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "135",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_ffdec600-e7cc-44e8-a",
+        "aspect_id": "ASP_20180906183245_79d7037f-5675-49d9-8",
+        "description": "Sterile Dressing Pack including: • Kidney bowl • Sterile drape • Gauze swabs • Cotton wool balls • Dressing forceps • Yellow or red disposable bag",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "139",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_0ccf6d3a-40f9-4a55-8",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Open and prepare critical field using correct ANTT and disposable bag as an aid. Lay out drape, guaze, bowl with cotton wool",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "143",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_1b69f3f0-8bb2-42ff-b",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Peel open the urinary catheter at the attachment end and not the end that enters the penis. Leave on the side in the packet ready for when required.",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "144",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_3e216a06-9f86-4299-9",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Apply sterile gloves",
+        "weight": "1",
+        "sort_code": "9",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "145",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_4c34f6fb-54d0-44cb-9",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Urinary Bag: Place bag with in arms reach, cap in place.",
+        "weight": "1",
+        "sort_code": "8",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "146",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_9b9d2920-5a6d-4e1e-a",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Check balloon on catheter-tip is intact by inflating it with air.",
+        "weight": "1",
+        "sort_code": "5",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "147",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_c755a52c-5b76-43e4-a",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Tear a hole in the sterile drape and pull the penis gently through the hole",
+        "weight": "1",
+        "sort_code": "10",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "149",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_fc701d1c-b52b-4de4-a",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Draw up 10 ml sterile water or saline. Replace into package (micro-critcal field) or on the side of the critical field",
+        "weight": "1",
+        "sort_code": "6",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "152",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_5d62cbd0-0589-4b39-9",
+        "aspect_id": "ASP_20180906183245_7ea47210-9fc5-4094-b",
+        "description": "Patient comfortable, clean and dry. Urine is draining into the bag. (30 - 40mls per hour is the normal flow)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "154",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_c95f5516-d5ed-4e57-a",
+        "aspect_id": "ASP_20180906183245_7ea47210-9fc5-4094-b",
+        "description": "Ask the patient to report any discomfort and observe closely for signs of distress.",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "155",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_a489d58b-9b98-430a-9",
+        "aspect_id": "ASP_20180906183245_85f29cba-6622-4d22-b",
+        "description": "Document: •Date, Time and Depth of Procedure. •Consent and Reason for catheterisation •Any problem experienced during the procedure. •Results of urine test",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "156",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_0a57018d-561a-4b1b-8",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Remove urinary catheter from the outer cover using ANTT and place on the critical field",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "157",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_15ec72e3-9a5b-49b7-b",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Withdraw the catheter gently (resistance can be felt when the balloon pulls against the bladder neck opening). Connect the urine collection bag if not already in place.",
+        "weight": "1",
+        "sort_code": "7",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "158",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_1ff795b0-859d-4fae-8",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Ensure the urinary bag is CLOSED: Cover the patient and maintain dignity.",
+        "weight": "1",
+        "sort_code": "11",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "159",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_3af2c1d2-8045-40e0-b",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Remove all unnecessary items such as the inner cover of the urinary catheter, the drape and any other items. Stick the catheter to the inside thigh using adhesive tape to prevent any weight or pull on the penis and catheter.",
+        "weight": "1",
+        "sort_code": "10",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "160",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_95300c9b-6def-404e-a",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "If resistance is felt, gently increase the traction on the penis, apply steady pressure on the catheter and ask the patient to strain gently as if passing urine or to cough.",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "163",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_c3d91938-8ed2-419f-a",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "When urine begins to flow, Stop and attach the urinary bag using ANTT and then continue to advance the catheter almost to the Y connection.",
+        "weight": "1",
+        "sort_code": "5",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "165",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_df972ffc-5091-4c4b-a",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Syringe and water: Gently inflate the balloon with the sterile water, according to the manufacturer’s direction (5-10ml).",
+        "weight": "1",
+        "sort_code": "6",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "166",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_eaf4723b-345c-4c5e-9",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Insert the catheter until urine flows.",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "167",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      }
+    ],
+    "all": [
+      {
+        "type": "score_item",
+        "id": "ITM_20181003095725_6e4b326f-c4ee-47e1-9",
+        "aspect_id": "ASP_20181003092307_f64a9c63-e110-4674-b",
+        "description": "Simulate radio medical advise and describe the wound",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "2",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181003091059_3ee3df81-aec6-4107-8",
+        "aspect_id": "ASP_20181003090919_5174638c-9b79-4f36-a",
+        "description": "Identifies patient status (level of Consciousness)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "3",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005090826_53c632a0-aa17-4307-b",
+        "aspect_id": "ASP_20181005090230_ae0d1170-c199-47e6-a",
+        "description": "Pain assessment. Uses PQRSTA initially and ongoing to determine when DCI symptoms disappear",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "15",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005084355_267d90a8-b19c-4ff9-a",
+        "aspect_id": "ASP_20181005084355_a2b1520d-f29b-4ab0-9",
+        "description": "Simulate radio medical advise and describe the DCI, Francis Smith and dive profile",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "23",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005093923_4ebe1862-9831-4588-9",
+        "aspect_id": "ASP_20181005092003_400b493c-b80e-41b0-b",
+        "description": "Positioning of patient",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "34",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005092003_6f566bae-4f43-490e-a",
+        "aspect_id": "ASP_20181005092003_8bb19fa3-e614-46c7-9",
+        "description": "Simulate radio medical advise and need for Chest drain insertion",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "36",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005100257_626eb700-4ab5-461f-9",
+        "aspect_id": "ASP_20181005100257_c3abb188-e463-405d-b",
+        "description": "Identifies patient status (level of Consciousness)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "44",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005100257_a6842f6b-4c77-4b5f-9",
+        "aspect_id": "ASP_20181005100257_09482185-2a1d-43ee-a",
+        "description": "Simulate radio medical advise and describe the wound",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "52",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005102846_80cdba45-b428-4433-8",
+        "aspect_id": "ASP_20181005102743_8ec21486-a652-4f6e-9",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "55",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005102126_11fe00a5-b751-4e1c-a",
+        "aspect_id": "ASP_20181005101706_d14d202c-0e64-44ac-b",
+        "description": "Manage injury using sound practice of ANTT",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "63",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005103133_746b1221-43bc-45c1-9",
+        "aspect_id": "ASP_20181005103133_47de2e00-6989-4ce4-8",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "72",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005103133_b19493c3-5f2d-476c-b",
+        "aspect_id": "ASP_20181005103133_c160cecc-b534-4eeb-9",
+        "description": "Simulate radio medical advise",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "74",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_81f8c4b9-995a-4168-a",
+        "aspect_id": "ASP_20181005105041_0bdd9683-2c87-4528-9",
+        "description": "Simulate radio medical advise and describe the SAMPLE and Pain assessment",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "80",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_573b06e2-c862-4ced-9",
+        "aspect_id": "ASP_20181005105041_11941bb7-0d7b-4eb3-a",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "84",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_20346489-a769-47ae-9",
+        "aspect_id": "ASP_20181005105041_d7f60f5a-1018-4bf2-b",
+        "description": "N.O.I Has index of suspicion of cardiac problem due to general appearance of patient",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "94",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_ed51d5ba-5a66-4baa-8",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "Identifies patient status.",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "106",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_a93dc33e-4555-44ee-8",
+        "aspect_id": "ASP_20181005071734_dd23f538-40e6-4ecb-8",
+        "description": "Simulate radio medical advise and describe the burn",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "108",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131530_aad8c9ba-8fc6-41d4-8",
+        "aspect_id": "ASP_20181008131350_c430f295-3430-48f1-a",
+        "description": "Does 10 point burn assessment",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "115",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008132203_a13cc128-86d3-4caf-b",
+        "aspect_id": "ASP_20181008131819_a57f74f8-090d-4de4-b",
+        "description": "Mentions all 5, Pain assessments for RMA analgesia.",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "118",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094807_02adfda6-195e-40fa-8",
+        "aspect_id": "ASP_20181005094154_a62c80e5-df62-4bd0-a",
+        "description": "Gets scoop, uses it correctly with head blocks to secure patient and transfer him to clinic",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "121",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094154_762f6205-4872-4b09-b",
+        "aspect_id": "ASP_20181005094154_e163a7a3-8c22-453d-9",
+        "description": "Mentions doing Vitals, Pain assessment, SAMPLE and full Head to Toe exam and ongoing assessment",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "126",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094154_50266e6f-93d9-4612-b",
+        "aspect_id": "ASP_20181005094154_e8474fe5-d8b2-4803-b",
+        "description": "Simulate radio medical advise",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "130",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_7a3cbdaa-5c47-4b7b-a",
+        "aspect_id": "ASP_20180906183245_79d7037f-5675-49d9-8",
+        "description": "Sterile Gloves (mask and apron optional)",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "133",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_86826ea3-1889-4ed7-9",
+        "aspect_id": "ASP_20180906183245_79d7037f-5675-49d9-8",
+        "description": "Urinary catheter and collection bag",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "134",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_a3640cde-54ca-4711-9",
+        "aspect_id": "ASP_20180906183245_79d7037f-5675-49d9-8",
+        "description": "5 or 10 mL syringe and sterile water",
+        "weight": "1",
+        "sort_code": "5",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "135",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_ffdec600-e7cc-44e8-a",
+        "aspect_id": "ASP_20180906183245_79d7037f-5675-49d9-8",
+        "description": "Sterile Dressing Pack including: • Kidney bowl • Sterile drape • Gauze swabs • Cotton wool balls • Dressing forceps • Yellow or red disposable bag",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "139",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_0ccf6d3a-40f9-4a55-8",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Open and prepare critical field using correct ANTT and disposable bag as an aid. Lay out drape, guaze, bowl with cotton wool",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "143",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_1b69f3f0-8bb2-42ff-b",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Peel open the urinary catheter at the attachment end and not the end that enters the penis. Leave on the side in the packet ready for when required.",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "144",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_3e216a06-9f86-4299-9",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Apply sterile gloves",
+        "weight": "1",
+        "sort_code": "9",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "145",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_4c34f6fb-54d0-44cb-9",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Urinary Bag: Place bag with in arms reach, cap in place.",
+        "weight": "1",
+        "sort_code": "8",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "146",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_9b9d2920-5a6d-4e1e-a",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Check balloon on catheter-tip is intact by inflating it with air.",
+        "weight": "1",
+        "sort_code": "5",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "147",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_c755a52c-5b76-43e4-a",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Tear a hole in the sterile drape and pull the penis gently through the hole",
+        "weight": "1",
+        "sort_code": "10",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "149",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_fc701d1c-b52b-4de4-a",
+        "aspect_id": "ASP_20180906183245_7ad0eaf4-2fa5-4c35-a",
+        "description": "Draw up 10 ml sterile water or saline. Replace into package (micro-critcal field) or on the side of the critical field",
+        "weight": "1",
+        "sort_code": "6",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "152",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_5d62cbd0-0589-4b39-9",
+        "aspect_id": "ASP_20180906183245_7ea47210-9fc5-4094-b",
+        "description": "Patient comfortable, clean and dry. Urine is draining into the bag. (30 - 40mls per hour is the normal flow)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "154",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_c95f5516-d5ed-4e57-a",
+        "aspect_id": "ASP_20180906183245_7ea47210-9fc5-4094-b",
+        "description": "Ask the patient to report any discomfort and observe closely for signs of distress.",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "155",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_a489d58b-9b98-430a-9",
+        "aspect_id": "ASP_20180906183245_85f29cba-6622-4d22-b",
+        "description": "Document: •Date, Time and Depth of Procedure. •Consent and Reason for catheterisation •Any problem experienced during the procedure. •Results of urine test",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "156",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_0a57018d-561a-4b1b-8",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Remove urinary catheter from the outer cover using ANTT and place on the critical field",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "157",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_15ec72e3-9a5b-49b7-b",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Withdraw the catheter gently (resistance can be felt when the balloon pulls against the bladder neck opening). Connect the urine collection bag if not already in place.",
+        "weight": "1",
+        "sort_code": "7",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "158",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_1ff795b0-859d-4fae-8",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Ensure the urinary bag is CLOSED: Cover the patient and maintain dignity.",
+        "weight": "1",
+        "sort_code": "11",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "159",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_3af2c1d2-8045-40e0-b",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Remove all unnecessary items such as the inner cover of the urinary catheter, the drape and any other items. Stick the catheter to the inside thigh using adhesive tape to prevent any weight or pull on the penis and catheter.",
+        "weight": "1",
+        "sort_code": "10",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "160",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_95300c9b-6def-404e-a",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "If resistance is felt, gently increase the traction on the penis, apply steady pressure on the catheter and ask the patient to strain gently as if passing urine or to cough.",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "163",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_c3d91938-8ed2-419f-a",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "When urine begins to flow, Stop and attach the urinary bag using ANTT and then continue to advance the catheter almost to the Y connection.",
+        "weight": "1",
+        "sort_code": "5",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "165",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_df972ffc-5091-4c4b-a",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Syringe and water: Gently inflate the balloon with the sterile water, according to the manufacturer’s direction (5-10ml).",
+        "weight": "1",
+        "sort_code": "6",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "166",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_eaf4723b-345c-4c5e-9",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Insert the catheter until urine flows.",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "167",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      }
+    ]
+  },
+  "summary": {
+    "title": "Skill sheet Urinary catherization (copy)",
+    "code": "DMT Urine",
+    "type": "wpa",
+    "norm": "7.5",
+    "active": false,
+    "total_criteria": 44,
+    "assessment_areas": 0,
+    "instruction_preview": "Time: 15 minutes Task: Perform male urinary catheterization Performance Objective: As an IMCA DMT perform this activity with a basic understanding of theory and practice principles, using RMA from a C..."
+  }
+}

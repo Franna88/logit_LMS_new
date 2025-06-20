@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "source_file": "Offshore Diver Medic - Full Course Theory.xml",
+    "root_tag": "Document",
+    "total_elements": 19858,
+    "attributes": {}
+  },
+  "summary": {
+    "total_assessments": 9,
+    "total_score_items": 172,
+    "total_aspects": 0,
+    "output_directory": "improved_assessments"
+  },
+  "assessments_overview": [
+    {
+      "filename": "dmt-wounds.json",
+      "id": "ASS_20181003074903_54a9f0d9-e181-4f70-a",
+      "code": "DMT Wounds",
+      "description": "Practical Skills Assessment - 10 point WOUND assessment",
+      "type": "wpa",
+      "active": false,
+      "criteria_count": 40,
+      "aspects_count": 0
+    },
+    {
+      "filename": "dmt-dci.json",
+      "id": "ASS_20181005084355_e74fcf50-4596-4298-8",
+      "code": "DMT DCI",
+      "description": "Practical Skills Assessment - Management of DCI",
+      "type": "wpa",
+      "active": false,
+      "criteria_count": 28,
+      "aspects_count": 0
+    },
+    {
+      "filename": "dmt-pneumothorax.json",
+      "id": "ASS_20181005092003_d1627782-b910-492c-8",
+      "code": "DMT Pneumothorax",
+      "description": "Practical Skills Assessment / Management of Tension Pneumothorax",
+      "type": "wpa",
+      "active": false,
+      "criteria_count": 31,
+      "aspects_count": 0
+    },
+    {
+      "filename": "dmt-crush-injury.json",
+      "id": "ASS_20181005100257_f8fd9cd1-ef86-462b-8",
+      "code": "DMT Crush injury",
+      "description": "Practical Skills Assessment - Management of Crush injury",
+      "type": "wpa",
+      "active": false,
+      "criteria_count": 34,
+      "aspects_count": 0
+    },
+    {
+      "filename": "dmt-loc-underwater.json",
+      "id": "ASS_20181005103133_f99a7d9d-9ce6-4169-a",
+      "code": "DMT LOC underwater",
+      "description": "Practical Skills Assessment - Management of LOC underwater",
+      "type": "wpa",
+      "active": false,
+      "criteria_count": 25,
+      "aspects_count": 0
+    },
+    {
+      "filename": "dmt-mi.json",
+      "id": "ASS_20181005105041_28be653d-8812-47a4-b",
+      "code": "DMT M.I",
+      "description": "Practical Skills Assessment - Management of Myocardial Infarct",
+      "type": "wpa",
+      "active": false,
+      "criteria_count": 25,
+      "aspects_count": 0
+    },
+    {
+      "filename": "dmt-burns.json",
+      "id": "ASS_20181005071734_b71ff52e-a4a1-47e0-b",
+      "code": "DMT Burns",
+      "description": "Practical Skills Assessment - Management of and 10 point Burn assessment",
+      "type": "wpa",
+      "active": false,
+      "criteria_count": 34,
+      "aspects_count": 0
+    },
+    {
+      "filename": "dmt-c-spine.json",
+      "id": "ASS_20181005094154_23d34171-5e07-4e07-8",
+      "code": "DMT C-Spine",
+      "description": "Practical Skills Assessment - Management of C-Spine injury",
+      "type": "wpa",
+      "active": false,
+      "criteria_count": 26,
+      "aspects_count": 0
+    },
+    {
+      "filename": "dmt-urine.json",
+      "id": "ASS_20180906183245_6aea0179-b5d3-4224-8",
+      "code": "DMT Urine",
+      "description": "Skill sheet Urinary catherization (copy)",
+      "type": "wpa",
+      "active": false,
+      "criteria_count": 44,
+      "aspects_count": 0
+    }
+  ]
+}

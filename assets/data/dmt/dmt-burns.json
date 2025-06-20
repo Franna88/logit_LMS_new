@@ -1,0 +1,1274 @@
+{
+  "metadata": {
+    "source_file": "Offshore Diver Medic - Full Course Theory.xml",
+    "assessment_id": "ASS_20181005071734_b71ff52e-a4a1-47e0-b",
+    "assessment_code": "DMT Burns",
+    "total_score_items": 34,
+    "directly_linked_items": 0,
+    "related_items": 34,
+    "total_aspects": 0
+  },
+  "assessment": {
+    "type": "assessment",
+    "id": "ASS_20181005071734_b71ff52e-a4a1-47e0-b",
+    "description": "Practical Skills Assessment - Management of and 10 point Burn assessment",
+    "weight": "1",
+    "active": false,
+    "assessment_type": "wpa",
+    "norm": "7.5",
+    "code": "DMT Burns",
+    "sort_code": "1",
+    "instruction": "YOU CAN NOT PROCEED WITHOUT A QUALIFIED ASSESSOR LOGGING IN. Please ensure you have completed the study unit on wound assessment in order to show proficiency. Good Luck ! BRIEF: The assessor will give you clear and accurate feedback identifying any knowledge or skill gaps and the need for re-evaluation if required. PRE-REQUISITE: This is a timed assessment. (Not facilitation) TIME FRAME - You have 10 minutes. PERFORMANCE LEVEL - (4 )- You must perform this activity without assistance at an appropriate pace with a basic understanding of theory and practice principles. VALIDITY - Scores are computer generated. On completion you may be required to record a maximum voice message or video following the 10 step wound assessment simulating report via Radio medical advice. CANDIDATE DIRECTIVE: Identify the wound given to you by the assessor and perform a methodical 10 point burn assessment.",
+    "auto_activate": true,
+    "number_of_retests": "1",
+    "metadata": {
+      "element_tag": "t_Beoordeling",
+      "attributes": {
+        "RowNumber": "7",
+        "String": "INSERT INTO [t_Beoordeling] ([ID_Beoordeling],[ID_Module], [Omschrijving], [Weging], [Actief], [Type], [Norm], [Code], [Sortcode], [ShowNorm], [AllowSelfenrolment], [StudiePunt], [ToonOmschrijving], [InitialHighestValueChecked], [Instruction], [AutoActivate], [NumberOfRetests], [ShowFullScale])"
+      }
+    }
+  },
+  "aspects": [],
+  "score_items": {
+    "directly_linked": [],
+    "related": [
+      {
+        "type": "score_item",
+        "id": "ITM_20181003095725_6e4b326f-c4ee-47e1-9",
+        "aspect_id": "ASP_20181003092307_f64a9c63-e110-4674-b",
+        "description": "Simulate radio medical advise and describe the wound",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "2",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181003091059_3ee3df81-aec6-4107-8",
+        "aspect_id": "ASP_20181003090919_5174638c-9b79-4f36-a",
+        "description": "Identifies patient status (level of Consciousness)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "3",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005090826_53c632a0-aa17-4307-b",
+        "aspect_id": "ASP_20181005090230_ae0d1170-c199-47e6-a",
+        "description": "Pain assessment. Uses PQRSTA initially and ongoing to determine when DCI symptoms disappear",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "15",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005084355_267d90a8-b19c-4ff9-a",
+        "aspect_id": "ASP_20181005084355_a2b1520d-f29b-4ab0-9",
+        "description": "Simulate radio medical advise and describe the DCI, Francis Smith and dive profile",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "23",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005093923_4ebe1862-9831-4588-9",
+        "aspect_id": "ASP_20181005092003_400b493c-b80e-41b0-b",
+        "description": "Positioning of patient",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "34",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005092003_6f566bae-4f43-490e-a",
+        "aspect_id": "ASP_20181005092003_8bb19fa3-e614-46c7-9",
+        "description": "Simulate radio medical advise and need for Chest drain insertion",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "36",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005100257_626eb700-4ab5-461f-9",
+        "aspect_id": "ASP_20181005100257_c3abb188-e463-405d-b",
+        "description": "Identifies patient status (level of Consciousness)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "44",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005100257_a6842f6b-4c77-4b5f-9",
+        "aspect_id": "ASP_20181005100257_09482185-2a1d-43ee-a",
+        "description": "Simulate radio medical advise and describe the wound",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "52",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005102846_80cdba45-b428-4433-8",
+        "aspect_id": "ASP_20181005102743_8ec21486-a652-4f6e-9",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "55",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005103133_746b1221-43bc-45c1-9",
+        "aspect_id": "ASP_20181005103133_47de2e00-6989-4ce4-8",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "72",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005103133_b19493c3-5f2d-476c-b",
+        "aspect_id": "ASP_20181005103133_c160cecc-b534-4eeb-9",
+        "description": "Simulate radio medical advise",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "74",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_81f8c4b9-995a-4168-a",
+        "aspect_id": "ASP_20181005105041_0bdd9683-2c87-4528-9",
+        "description": "Simulate radio medical advise and describe the SAMPLE and Pain assessment",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "80",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_573b06e2-c862-4ced-9",
+        "aspect_id": "ASP_20181005105041_11941bb7-0d7b-4eb3-a",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "84",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_20346489-a769-47ae-9",
+        "aspect_id": "ASP_20181005105041_d7f60f5a-1018-4bf2-b",
+        "description": "N.O.I Has index of suspicion of cardiac problem due to general appearance of patient",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "94",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_2c7f02bc-fe4f-4bc5-8",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "List the types of Burn - Thermal, electrical, chemical, Radiation.",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "99",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_319408b1-57dc-4cf1-b",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "Identifies the forces involved: Any evidence of inhalation burns or smoke inhalation (heat, smoke or toxic vapor)",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "100",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_6315f949-bc56-45a8-a",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "Name the different depths of burns",
+        "weight": "1",
+        "sort_code": "5",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "102",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_65e4c372-7d47-4b6c-9",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "List which burns are critical",
+        "weight": "1",
+        "sort_code": "7",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "103",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_ed51d5ba-5a66-4baa-8",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "Identifies patient status.",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "106",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_a93dc33e-4555-44ee-8",
+        "aspect_id": "ASP_20181005071734_dd23f538-40e6-4ecb-8",
+        "description": "Simulate radio medical advise and describe the burn",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "108",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131155_d85ca2c7-dfd8-46a1-a",
+        "aspect_id": "ASP_20181008130453_592fd514-940f-4840-b",
+        "description": "Hazards: Correct PPE, removes I.P from burning environment, MOI explosion, I.O.S: checks for signs of inhalation burn",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "110",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131454_1bcab741-20e9-47ce-b",
+        "aspect_id": "ASP_20181008131350_c430f295-3430-48f1-a",
+        "description": "Cools burn under tepid water at least 40 min.",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "113",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131530_aad8c9ba-8fc6-41d4-8",
+        "aspect_id": "ASP_20181008131350_c430f295-3430-48f1-a",
+        "description": "Does 10 point burn assessment",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "115",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131628_36823d38-2bb5-4761-b",
+        "aspect_id": "ASP_20181008131350_c430f295-3430-48f1-a",
+        "description": "Covers burn with Burnshield, glad wrap, cool compresses, fingers dressed separately.",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "116",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131951_1051e3e1-e82c-44f7-b",
+        "aspect_id": "ASP_20181008131350_c430f295-3430-48f1-a",
+        "description": "Removes burnt clothing and jewelry",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "117",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008132203_a13cc128-86d3-4caf-b",
+        "aspect_id": "ASP_20181008131819_a57f74f8-090d-4de4-b",
+        "description": "Mentions all 5, Pain assessments for RMA analgesia.",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "118",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094807_02adfda6-195e-40fa-8",
+        "aspect_id": "ASP_20181005094154_a62c80e5-df62-4bd0-a",
+        "description": "Gets scoop, uses it correctly with head blocks to secure patient and transfer him to clinic",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "121",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094154_762f6205-4872-4b09-b",
+        "aspect_id": "ASP_20181005094154_e163a7a3-8c22-453d-9",
+        "description": "Mentions doing Vitals, Pain assessment, SAMPLE and full Head to Toe exam and ongoing assessment",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "126",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094154_50266e6f-93d9-4612-b",
+        "aspect_id": "ASP_20181005094154_e8474fe5-d8b2-4803-b",
+        "description": "Simulate radio medical advise",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "130",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_5d62cbd0-0589-4b39-9",
+        "aspect_id": "ASP_20180906183245_7ea47210-9fc5-4094-b",
+        "description": "Patient comfortable, clean and dry. Urine is draining into the bag. (30 - 40mls per hour is the normal flow)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "154",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_c95f5516-d5ed-4e57-a",
+        "aspect_id": "ASP_20180906183245_7ea47210-9fc5-4094-b",
+        "description": "Ask the patient to report any discomfort and observe closely for signs of distress.",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "155",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_1ff795b0-859d-4fae-8",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Ensure the urinary bag is CLOSED: Cover the patient and maintain dignity.",
+        "weight": "1",
+        "sort_code": "11",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "159",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_3b35b62d-18f1-408d-a",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Clean the tip of the penis and re-position the foreskin if required.",
+        "weight": "1",
+        "sort_code": "8",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "161",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_95300c9b-6def-404e-a",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "If resistance is felt, gently increase the traction on the penis, apply steady pressure on the catheter and ask the patient to strain gently as if passing urine or to cough.",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "163",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      }
+    ],
+    "all": [
+      {
+        "type": "score_item",
+        "id": "ITM_20181003095725_6e4b326f-c4ee-47e1-9",
+        "aspect_id": "ASP_20181003092307_f64a9c63-e110-4674-b",
+        "description": "Simulate radio medical advise and describe the wound",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "2",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181003091059_3ee3df81-aec6-4107-8",
+        "aspect_id": "ASP_20181003090919_5174638c-9b79-4f36-a",
+        "description": "Identifies patient status (level of Consciousness)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "3",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005090826_53c632a0-aa17-4307-b",
+        "aspect_id": "ASP_20181005090230_ae0d1170-c199-47e6-a",
+        "description": "Pain assessment. Uses PQRSTA initially and ongoing to determine when DCI symptoms disappear",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "15",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005084355_267d90a8-b19c-4ff9-a",
+        "aspect_id": "ASP_20181005084355_a2b1520d-f29b-4ab0-9",
+        "description": "Simulate radio medical advise and describe the DCI, Francis Smith and dive profile",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "23",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005093923_4ebe1862-9831-4588-9",
+        "aspect_id": "ASP_20181005092003_400b493c-b80e-41b0-b",
+        "description": "Positioning of patient",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "34",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005092003_6f566bae-4f43-490e-a",
+        "aspect_id": "ASP_20181005092003_8bb19fa3-e614-46c7-9",
+        "description": "Simulate radio medical advise and need for Chest drain insertion",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "36",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005100257_626eb700-4ab5-461f-9",
+        "aspect_id": "ASP_20181005100257_c3abb188-e463-405d-b",
+        "description": "Identifies patient status (level of Consciousness)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "44",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005100257_a6842f6b-4c77-4b5f-9",
+        "aspect_id": "ASP_20181005100257_09482185-2a1d-43ee-a",
+        "description": "Simulate radio medical advise and describe the wound",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "52",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005102846_80cdba45-b428-4433-8",
+        "aspect_id": "ASP_20181005102743_8ec21486-a652-4f6e-9",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "55",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005103133_746b1221-43bc-45c1-9",
+        "aspect_id": "ASP_20181005103133_47de2e00-6989-4ce4-8",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "72",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005103133_b19493c3-5f2d-476c-b",
+        "aspect_id": "ASP_20181005103133_c160cecc-b534-4eeb-9",
+        "description": "Simulate radio medical advise",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "74",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_81f8c4b9-995a-4168-a",
+        "aspect_id": "ASP_20181005105041_0bdd9683-2c87-4528-9",
+        "description": "Simulate radio medical advise and describe the SAMPLE and Pain assessment",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "80",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_573b06e2-c862-4ced-9",
+        "aspect_id": "ASP_20181005105041_11941bb7-0d7b-4eb3-a",
+        "description": "Ongoing assessment and monitoring until evacuation",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "84",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005105041_20346489-a769-47ae-9",
+        "aspect_id": "ASP_20181005105041_d7f60f5a-1018-4bf2-b",
+        "description": "N.O.I Has index of suspicion of cardiac problem due to general appearance of patient",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "94",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_2c7f02bc-fe4f-4bc5-8",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "List the types of Burn - Thermal, electrical, chemical, Radiation.",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "99",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_319408b1-57dc-4cf1-b",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "Identifies the forces involved: Any evidence of inhalation burns or smoke inhalation (heat, smoke or toxic vapor)",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "100",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_6315f949-bc56-45a8-a",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "Name the different depths of burns",
+        "weight": "1",
+        "sort_code": "5",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "102",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_65e4c372-7d47-4b6c-9",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "List which burns are critical",
+        "weight": "1",
+        "sort_code": "7",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "103",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_ed51d5ba-5a66-4baa-8",
+        "aspect_id": "ASP_20181005071734_8d9d8561-2292-49ab-b",
+        "description": "Identifies patient status.",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "106",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005071734_a93dc33e-4555-44ee-8",
+        "aspect_id": "ASP_20181005071734_dd23f538-40e6-4ecb-8",
+        "description": "Simulate radio medical advise and describe the burn",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "108",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131155_d85ca2c7-dfd8-46a1-a",
+        "aspect_id": "ASP_20181008130453_592fd514-940f-4840-b",
+        "description": "Hazards: Correct PPE, removes I.P from burning environment, MOI explosion, I.O.S: checks for signs of inhalation burn",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "110",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131454_1bcab741-20e9-47ce-b",
+        "aspect_id": "ASP_20181008131350_c430f295-3430-48f1-a",
+        "description": "Cools burn under tepid water at least 40 min.",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "113",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131530_aad8c9ba-8fc6-41d4-8",
+        "aspect_id": "ASP_20181008131350_c430f295-3430-48f1-a",
+        "description": "Does 10 point burn assessment",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "115",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131628_36823d38-2bb5-4761-b",
+        "aspect_id": "ASP_20181008131350_c430f295-3430-48f1-a",
+        "description": "Covers burn with Burnshield, glad wrap, cool compresses, fingers dressed separately.",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "116",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008131951_1051e3e1-e82c-44f7-b",
+        "aspect_id": "ASP_20181008131350_c430f295-3430-48f1-a",
+        "description": "Removes burnt clothing and jewelry",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "117",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181008132203_a13cc128-86d3-4caf-b",
+        "aspect_id": "ASP_20181008131819_a57f74f8-090d-4de4-b",
+        "description": "Mentions all 5, Pain assessments for RMA analgesia.",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "118",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094807_02adfda6-195e-40fa-8",
+        "aspect_id": "ASP_20181005094154_a62c80e5-df62-4bd0-a",
+        "description": "Gets scoop, uses it correctly with head blocks to secure patient and transfer him to clinic",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "121",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094154_762f6205-4872-4b09-b",
+        "aspect_id": "ASP_20181005094154_e163a7a3-8c22-453d-9",
+        "description": "Mentions doing Vitals, Pain assessment, SAMPLE and full Head to Toe exam and ongoing assessment",
+        "weight": "1",
+        "sort_code": "3",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "126",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20181005094154_50266e6f-93d9-4612-b",
+        "aspect_id": "ASP_20181005094154_e8474fe5-d8b2-4803-b",
+        "description": "Simulate radio medical advise",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "130",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_5d62cbd0-0589-4b39-9",
+        "aspect_id": "ASP_20180906183245_7ea47210-9fc5-4094-b",
+        "description": "Patient comfortable, clean and dry. Urine is draining into the bag. (30 - 40mls per hour is the normal flow)",
+        "weight": "1",
+        "sort_code": "1",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "154",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_c95f5516-d5ed-4e57-a",
+        "aspect_id": "ASP_20180906183245_7ea47210-9fc5-4094-b",
+        "description": "Ask the patient to report any discomfort and observe closely for signs of distress.",
+        "weight": "1",
+        "sort_code": "2",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "155",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_1ff795b0-859d-4fae-8",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Ensure the urinary bag is CLOSED: Cover the patient and maintain dignity.",
+        "weight": "1",
+        "sort_code": "11",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "159",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_3b35b62d-18f1-408d-a",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "Clean the tip of the penis and re-position the foreskin if required.",
+        "weight": "1",
+        "sort_code": "8",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "161",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      },
+      {
+        "type": "score_item",
+        "id": "ITM_20180906183245_95300c9b-6def-404e-a",
+        "aspect_id": "ASP_20180906183245_b0bd9fa6-06c4-4d4e-9",
+        "description": "If resistance is felt, gently increase the traction on the penis, apply steady pressure on the catheter and ask the patient to strain gently as if passing urine or to cough.",
+        "weight": "1",
+        "sort_code": "4",
+        "item_type": "1",
+        "active": true,
+        "required_minimum_score": "NULL",
+        "metadata": {
+          "element_tag": "t_ScoreItem",
+          "attributes": {
+            "RowNumber": "163",
+            "String": "INSERT INTO [t_ScoreItem] ([ID_ScoreItem], [ID_Aspect], [Omschrijving], [Weging], [Sortcode], [Type], [Actief], [RequiredMinimumScore])"
+          }
+        }
+      }
+    ]
+  },
+  "summary": {
+    "title": "Practical Skills Assessment - Management of and 10 point Burn assessment",
+    "code": "DMT Burns",
+    "type": "wpa",
+    "norm": "7.5",
+    "active": false,
+    "total_criteria": 34,
+    "assessment_areas": 0,
+    "instruction_preview": "YOU CAN NOT PROCEED WITHOUT A QUALIFIED ASSESSOR LOGGING IN. Please ensure you have completed the study unit on wound assessment in order to show proficiency. Good Luck ! BRIEF: The assessor will give..."
+  }
+}

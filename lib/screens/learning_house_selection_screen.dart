@@ -9,6 +9,7 @@ import '../widgets/learning_house_popup.dart';
 import '../widgets/diver_buddy_button.dart';
 import '../widgets/wave_painter.dart';
 import 'game_map_screen.dart';
+import 'cpd_island_map_screen.dart';
 import 'role_selection_screen.dart' as role_screen;
 
 class LearningHouseSelectionScreen extends StatefulWidget {
@@ -99,6 +100,16 @@ class _LearningHouseSelectionScreenState extends State<LearningHouseSelectionScr
         y: 0.45,
         logoPath: 'assets/images/diving_houses/GUE-logo_new.png',
         specialty: 'Technical Excellence',
+      ),
+      LearningHouse(
+        id: 'cpd_wpa',
+        name: 'CPD WPA',
+        fullName: 'Continuing Professional Development - Workplace Professional Academy',
+        description: 'Professional development academy offering specialized training programs and continuing education for diving professionals.',
+        x: 0.9,
+        y: 0.4,
+        logoPath: 'assets/images/diving_houses/padi.png', // Using PADI logo as placeholder
+        specialty: 'Professional Development',
       ),
     ];
   }
@@ -211,27 +222,52 @@ class _LearningHouseSelectionScreenState extends State<LearningHouseSelectionScr
     final gameState = Provider.of<GameStateProvider>(context, listen: false);
     gameState.setSelectedLearningHouse(selectedHouse.id);
     
-    Navigator.of(context).pushReplacement(
-      PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            const GameMapScreen(),
-        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          const begin = Offset(1.0, 0.0);
-          const end = Offset.zero;
-          const curve = Curves.easeOutCubic;
+    // Check if CPD WPA is selected to navigate to island map
+    if (selectedHouse.id == 'cpd_wpa') {
+      Navigator.of(context).pushReplacement(
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const CPDIslandMapScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(1.0, 0.0);
+            const end = Offset.zero;
+            const curve = Curves.easeOutCubic;
 
-          var tween = Tween(begin: begin, end: end).chain(
-            CurveTween(curve: curve),
-          );
+            var tween = Tween(begin: begin, end: end).chain(
+              CurveTween(curve: curve),
+            );
 
-          return SlideTransition(
-            position: animation.drive(tween),
-            child: child,
-          );
-        },
-        transitionDuration: const Duration(milliseconds: 800),
-      ),
-    );
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+          transitionDuration: const Duration(milliseconds: 800),
+        ),
+      );
+    } else {
+      Navigator.of(context).pushReplacement(
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              const GameMapScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(1.0, 0.0);
+            const end = Offset.zero;
+            const curve = Curves.easeOutCubic;
+
+            var tween = Tween(begin: begin, end: end).chain(
+              CurveTween(curve: curve),
+            );
+
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+          transitionDuration: const Duration(milliseconds: 800),
+        ),
+      );
+    }
   }
 
   void _navigateBackToRoleSelection() {

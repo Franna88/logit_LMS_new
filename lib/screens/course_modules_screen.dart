@@ -8,6 +8,9 @@ import '../models/poi.dart';
 import '../widgets/bubble_animation.dart';
 import 'module_lesson_screen.dart';
 import 'assessment_viewer_screen.dart';
+import 'dmt_json_viewer_screen.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
 
 class CourseModule {
   final String id;
@@ -1127,6 +1130,78 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
                 ),
               ),
               
+              // CPD Assessment Section
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Colors.orange.withOpacity(0.15),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: Colors.orange.withOpacity(0.3),
+                    width: 1,
+                  ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.medical_services,
+                          color: Colors.orange,
+                          size: 20,
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          'CPD Assessment for this course',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    Text(
+                      'Complete the Continuing Professional Development assessment to demonstrate your understanding of this course content.',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white.withOpacity(0.8),
+                        height: 1.4,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton.icon(
+                        onPressed: () => _openCPDAssessment(),
+                        icon: const Icon(Icons.assignment, size: 16),
+                        label: const Text(
+                          'Start CPD Assessment',
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.orange,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          elevation: 0,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              
+              const SizedBox(height: 20),
+              
               // Modules title
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -1481,6 +1556,53 @@ class _CourseModulesScreenState extends State<CourseModulesScreen>
         transitionDuration: const Duration(milliseconds: 600),
       ),
     );
+  }
+
+  void _openCPDAssessment() async {
+    if (selectedCourse == null) return;
+    
+    try {
+      // Load a DMT assessment file - using wounds assessment as default
+      final String assessmentData = await rootBundle.loadString('assets/data/dmt/dmt-wounds.json');
+      final Map<String, dynamic> assessmentJson = json.decode(assessmentData);
+      
+      // Navigate to DMT JSON viewer screen
+      Navigator.of(context).push(
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              DMTJsonViewerScreen(
+                assessmentCode: 'CPD-${selectedCourse!.id.toUpperCase()}',
+                filename: 'dmt-wounds.json',
+                assessmentData: assessmentJson,
+              ),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            const begin = Offset(1.0, 0.0);
+            const end = Offset.zero;
+            const curve = Curves.easeOutCubic;
+
+            var tween = Tween(begin: begin, end: end).chain(
+              CurveTween(curve: curve),
+            );
+
+            return SlideTransition(
+              position: animation.drive(tween),
+              child: child,
+            );
+          },
+          transitionDuration: const Duration(milliseconds: 800),
+        ),
+      );
+      
+    } catch (e) {
+      // Show error message if assessment file cannot be loaded
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error loading CPD assessment: ${e.toString()}'),
+          backgroundColor: Colors.red,
+          duration: const Duration(seconds: 3),
+        ),
+      );
+    }
   }
 
   Color _getDifficultyColor(String difficulty) {

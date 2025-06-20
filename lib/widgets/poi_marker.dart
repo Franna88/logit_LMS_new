@@ -22,6 +22,8 @@ class POIMarker extends StatelessWidget {
         return Colors.brown;
       case 'deep_water':
         return Colors.indigo;
+      case 'medical':
+        return Colors.red;
       default:
         return Colors.blue;
     }
@@ -45,6 +47,8 @@ class POIMarker extends StatelessWidget {
         return 'assets/images/large_ship_poi.png';
       case 'thermal':
         return 'assets/images/oil_rig_poi.png';
+      case 'medical':
+        return 'assets/images/dmt.jpg';
       default:
         return 'assets/images/basics_poi.png';
     }

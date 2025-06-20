@@ -235,6 +235,8 @@ class POIPopup extends StatelessWidget {
         return 'assets/images/large_ship_poi.png';
       case 'thermal':
         return 'assets/images/oil_rig_poi.png';
+      case 'medical':
+        return 'assets/images/dmt.jpg';
       default:
         return 'assets/images/basics_poi.png';
     }
@@ -258,6 +260,8 @@ class POIPopup extends StatelessWidget {
         return Icons.military_tech;
       case 'thermal':
         return Icons.local_fire_department;
+      case 'medical':
+        return Icons.medical_services;
       default:
         return Icons.place;
     }
