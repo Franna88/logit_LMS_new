@@ -35,6 +35,9 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
   final Map<int, TextEditingController> commentControllers = {};
   final Map<int, TextEditingController> scoreControllers = {};
   
+  // Overall assessment controllers
+  late TextEditingController overallCommentsController;
+  
   // Assessor login state
   bool isAssessorLoggedIn = false;
   String assessorName = '';
@@ -43,6 +46,7 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
   // Assessment pagination
   int currentCriteriaIndex = 0;
   PageController pageController = PageController();
+  bool showingFinalAssessment = false;
 
   @override
   void initState() {
@@ -74,6 +78,9 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
       curve: Curves.easeIn,
     ));
 
+    // Initialize overall comments controller
+    overallCommentsController = TextEditingController();
+
     _startAnimations();
   }
 
@@ -82,6 +89,7 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
     _slideController.dispose();
     _fadeController.dispose();
     pageController.dispose();
+    overallCommentsController.dispose();
     // Dispose all text controllers
     for (var controller in commentControllers.values) {
       controller.dispose();
@@ -265,8 +273,10 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
             ),
           ],
 
-          // Assessment Criteria Section
-          if (relatedItems != null && relatedItems.isNotEmpty) ...[
+          // Assessment Criteria Section or Final Assessment
+          if (showingFinalAssessment) ...[
+            _buildFinalAssessmentView(relatedItems, isSmallScreen),
+          ] else if (relatedItems != null && relatedItems.isNotEmpty) ...[
             _buildPaginatedAssessmentCriteria(relatedItems, isSmallScreen),
           ] else ...[
             // Show message if no criteria available
@@ -506,7 +516,7 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
         'score': '',
         'comments': '',
         'media': [],
-        'passed': null,
+        'competency': null,
       };
     }
 
@@ -624,7 +634,7 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Result:',
+                  'Competency Assessment:',
                   style: TextStyle(
                     fontSize: isSmallScreen ? 13 : 14,
                     fontWeight: FontWeight.w500,
@@ -636,21 +646,6 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
               ],
             ),
           ),
-          
-          SizedBox(height: isSmallScreen ? 12 : 16),
-          
-          // Score Input
-          _buildScoreSection(index, isSmallScreen),
-          
-          SizedBox(height: isSmallScreen ? 12 : 16),
-          
-          // Comments Input
-          _buildCommentsSection(index, isSmallScreen),
-          
-          SizedBox(height: isSmallScreen ? 12 : 16),
-          
-          // Media Upload Section
-          _buildMediaUploadSection(index),
             ],
           ),
         ),
@@ -880,7 +875,7 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
                         children: relatedItems.asMap().entries.map((entry) {
                           final index = entry.key;
                           final isCompleted = assessmentData.containsKey(index + 1) && 
-                              assessmentData[index + 1]!['passed'] != null;
+                              assessmentData[index + 1]!['competency'] != null;
                           final isCurrent = index == currentCriteriaIndex;
                           
                           return GestureDetector(
@@ -917,7 +912,7 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
                         children: relatedItems.asMap().entries.map((entry) {
                           final index = entry.key;
                           final isCompleted = assessmentData.containsKey(index + 1) && 
-                              assessmentData[index + 1]!['passed'] != null;
+                              assessmentData[index + 1]!['competency'] != null;
                           final isCurrent = index == currentCriteriaIndex;
                           
                           return GestureDetector(
@@ -953,7 +948,7 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
         
         // Criteria content area
         Container(
-          height: isSmallScreen ? 500 : 600,
+          height: isSmallScreen ? 300 : 350,
           decoration: BoxDecoration(
             color: Colors.white.withOpacity(0.05),
             borderRadius: BorderRadius.circular(16),
@@ -982,18 +977,14 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
         SizedBox(height: isSmallScreen ? 16 : 20),
         
         // Navigation buttons
-        _buildNavigationButtons(relatedItems.length, isSmallScreen),
+        _buildNavigationButtons(relatedItems.length, relatedItems, isSmallScreen),
         
-        SizedBox(height: isSmallScreen ? 16 : 20),
-        
-        // Submit section (only show on last criteria)
-        if (currentCriteriaIndex == relatedItems.length - 1)
-          _buildSubmitSection(),
+
       ],
     );
   }
 
-  Widget _buildNavigationButtons(int totalItems, bool isSmallScreen) {
+  Widget _buildNavigationButtons(int totalItems, List<dynamic> relatedItems, bool isSmallScreen) {
     return Container(
       width: double.infinity,
       child: Row(
@@ -1037,7 +1028,7 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
           
           SizedBox(width: isSmallScreen ? 12 : 16),
           
-          // Next button
+          // Next/Complete button
           Expanded(
             child: ElevatedButton.icon(
               onPressed: currentCriteriaIndex < totalItems - 1
@@ -1051,10 +1042,23 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
                         curve: Curves.easeInOut,
                       );
                     }
-                  : null,
-              icon: Icon(Icons.arrow_forward, size: isSmallScreen ? 20 : 18),
+                  : _areAllCriteriaCompleted(relatedItems)
+                      ? () {
+                          setState(() {
+                            showingFinalAssessment = true;
+                          });
+                        }
+                      : null,
+              icon: Icon(
+                currentCriteriaIndex == totalItems - 1 && _areAllCriteriaCompleted(relatedItems)
+                    ? Icons.check_circle
+                    : Icons.arrow_forward,
+                size: isSmallScreen ? 20 : 18,
+              ),
               label: Text(
-                currentCriteriaIndex == totalItems - 1 ? 'Complete' : 'Next',
+                currentCriteriaIndex == totalItems - 1 && _areAllCriteriaCompleted(relatedItems)
+                    ? 'Complete Assessment'
+                    : 'Next',
                 style: TextStyle(
                   fontSize: isSmallScreen ? 16 : 14,
                   fontWeight: FontWeight.w600,
@@ -1063,7 +1067,9 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
               style: ElevatedButton.styleFrom(
                 backgroundColor: currentCriteriaIndex < totalItems - 1
                     ? Colors.green.withOpacity(0.8)
-                    : Colors.orange.withOpacity(0.8),
+                    : _areAllCriteriaCompleted(relatedItems)
+                        ? Colors.orange.withOpacity(0.8)
+                        : Colors.grey.withOpacity(0.3),
                 foregroundColor: Colors.white,
                 padding: EdgeInsets.symmetric(vertical: isSmallScreen ? 16 : 14),
                 shape: RoundedRectangleBorder(
@@ -1079,42 +1085,53 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
   }
 
   Widget _buildPassFailToggle(int index) {
-    final currentValue = assessmentData[index]?['passed'];
+    final currentValue = assessmentData[index]?['competency'];
     final isSmallScreen = MediaQuery.of(context).size.width < 600;
     
     return Container(
       width: double.infinity,
       child: Wrap(
-        spacing: isSmallScreen ? 6 : 8,
-        runSpacing: isSmallScreen ? 6 : 8,
+        spacing: isSmallScreen ? 10 : 12,
+        runSpacing: isSmallScreen ? 10 : 12,
+        alignment: WrapAlignment.center,
         children: [
           _buildToggleButton(
-            'Pass',
-            currentValue == true,
+            'Competent',
+            currentValue == 'competent',
             Colors.green,
             () {
               setState(() {
-                assessmentData[index]!['passed'] = true;
+                assessmentData[index]!['competency'] = 'competent';
               });
             },
           ),
           _buildToggleButton(
-            'Fail',
-            currentValue == false,
+            'Not Yet Competent',
+            currentValue == 'not_yet_competent',
+            Colors.orange,
+            () {
+              setState(() {
+                assessmentData[index]!['competency'] = 'not_yet_competent';
+              });
+            },
+          ),
+          _buildToggleButton(
+            'Skill Gap',
+            currentValue == 'skill_gap',
+            Colors.orange,
+            () {
+              setState(() {
+                assessmentData[index]!['competency'] = 'skill_gap';
+              });
+            },
+          ),
+          _buildToggleButton(
+            'Knowledge Gap',
+            currentValue == 'knowledge_gap',
             Colors.red,
             () {
               setState(() {
-                assessmentData[index]!['passed'] = false;
-              });
-            },
-          ),
-          _buildToggleButton(
-            'N/A',
-            currentValue == null,
-            Colors.grey,
-            () {
-              setState(() {
-                assessmentData[index]!['passed'] = null;
+                assessmentData[index]!['competency'] = 'knowledge_gap';
               });
             },
           ),
@@ -1130,28 +1147,39 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
       onTap: onTap,
       child: Container(
         constraints: BoxConstraints(
-          minWidth: isSmallScreen ? 60 : 50,
-          minHeight: isSmallScreen ? 40 : 32,
+          minWidth: isSmallScreen ? 120 : 100,
+          minHeight: isSmallScreen ? 56 : 48,
         ),
         padding: EdgeInsets.symmetric(
-          horizontal: isSmallScreen ? 14 : 12, 
-          vertical: isSmallScreen ? 8 : 6,
+          horizontal: isSmallScreen ? 16 : 14, 
+          vertical: isSmallScreen ? 12 : 10,
         ),
         decoration: BoxDecoration(
-          color: isSelected ? color : Colors.transparent,
-          borderRadius: BorderRadius.circular(8),
+          color: isSelected ? color : color.withOpacity(0.15),
+          borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected ? color : color.withOpacity(0.5),
+            color: color,
+            width: isSelected ? 2 : 1.5,
           ),
+          boxShadow: isSelected ? [
+            BoxShadow(
+              color: color.withOpacity(0.3),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ] : null,
         ),
         child: Center(
           child: Text(
             label,
             style: TextStyle(
               fontSize: isSmallScreen ? 14 : 12,
-              fontWeight: FontWeight.w600,
-              color: isSelected ? Colors.white : color.withOpacity(0.8),
+              fontWeight: FontWeight.bold,
+              color: isSelected ? Colors.white : color,
             ),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
           ),
         ),
       ),
@@ -1394,123 +1422,304 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
 
   Widget _buildSubmitSection() {
     final isSmallScreen = MediaQuery.of(context).size.width < 600;
+    final scoreItems = widget.assessmentData['score_items'] as Map<String, dynamic>?;
+    final relatedItems = scoreItems?['related'] as List<dynamic>?;
     
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.only(top: isSmallScreen ? 16 : 20),
-      padding: EdgeInsets.all(isSmallScreen ? 16 : 20),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(
-          color: Colors.white.withOpacity(0.2),
-        ),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            'Assessment Complete',
-            style: TextStyle(
-              fontSize: isSmallScreen ? 16 : 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+    // Calculate final score based on competency assessments
+    double finalScore = _calculateFinalScore(relatedItems);
+    bool passed = finalScore >= 75.0;
+    
+    return Column(
+      children: [
+        // Final Score Section
+        Container(
+          width: double.infinity,
+          margin: EdgeInsets.only(bottom: isSmallScreen ? 16 : 20),
+          padding: EdgeInsets.all(isSmallScreen ? 16 : 20),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: Colors.white.withOpacity(0.2),
             ),
           ),
-          SizedBox(height: isSmallScreen ? 6 : 8),
-          Text(
-            'Review all criteria and submit the assessment',
-            style: TextStyle(
-              fontSize: isSmallScreen ? 13 : 14,
-              color: Colors.white.withOpacity(0.8),
-            ),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: isSmallScreen ? 16 : 20),
-          MediaQuery.of(context).size.width < 600
-              ? Column(
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.grade, color: Colors.orange, size: isSmallScreen ? 20 : 24),
+                  SizedBox(width: isSmallScreen ? 8 : 12),
+                  Text(
+                    'Final Assessment Score',
+                    style: TextStyle(
+                      fontSize: isSmallScreen ? 16 : 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: isSmallScreen ? 12 : 16),
+              Container(
+                padding: EdgeInsets.all(isSmallScreen ? 16 : 20),
+                decoration: BoxDecoration(
+                  color: passed ? Colors.green.withOpacity(0.2) : Colors.red.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: passed ? Colors.green.withOpacity(0.5) : Colors.red.withOpacity(0.5),
+                  ),
+                ),
+                child: Column(
                   children: [
-                    // Stack buttons vertically on small screens
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton.icon(
-                        onPressed: _saveAssessment,
-                        icon: const Icon(Icons.save),
-                        label: const Text('Save Draft'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          textStyle: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
+                    Text(
+                      '${finalScore.toStringAsFixed(1)}%',
+                      style: TextStyle(
+                        fontSize: isSmallScreen ? 32 : 36,
+                        fontWeight: FontWeight.bold,
+                        color: passed ? Colors.green : Colors.red,
                       ),
                     ),
-                    const SizedBox(height: 12),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton.icon(
-                        onPressed: _submitAssessment,
-                        icon: const Icon(Icons.send),
-                        label: const Text('Submit Assessment'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          textStyle: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
+                    SizedBox(height: isSmallScreen ? 6 : 8),
+                    Text(
+                      passed ? 'PASSED' : 'FAILED',
+                      style: TextStyle(
+                        fontSize: isSmallScreen ? 16 : 18,
+                        fontWeight: FontWeight.bold,
+                        color: passed ? Colors.green : Colors.red,
                       ),
                     ),
-                  ],
-                )
-              : Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton.icon(
-                        onPressed: _saveAssessment,
-                        icon: const Icon(Icons.save),
-                        label: const Text('Save Draft'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 14),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: ElevatedButton.icon(
-                        onPressed: _submitAssessment,
-                        icon: const Icon(Icons.send),
-                        label: const Text('Submit'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 14),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                        ),
+                    SizedBox(height: isSmallScreen ? 4 : 6),
+                    Text(
+                      'Minimum Required: 75%',
+                      style: TextStyle(
+                        fontSize: isSmallScreen ? 12 : 14,
+                        color: Colors.white.withOpacity(0.7),
                       ),
                     ),
                   ],
                 ),
-        ],
-      ),
+              ),
+            ],
+          ),
+        ),
+        
+        // Overall Comments Section
+        Container(
+          width: double.infinity,
+          margin: EdgeInsets.only(bottom: isSmallScreen ? 16 : 20),
+          padding: EdgeInsets.all(isSmallScreen ? 16 : 20),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: Colors.white.withOpacity(0.2),
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.comment, color: Colors.blue, size: isSmallScreen ? 20 : 24),
+                  SizedBox(width: isSmallScreen ? 8 : 12),
+                  Text(
+                    'Overall Assessment Comments',
+                    style: TextStyle(
+                      fontSize: isSmallScreen ? 16 : 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: isSmallScreen ? 12 : 16),
+              TextField(
+                controller: _getOverallCommentsController(),
+                maxLines: isSmallScreen ? 4 : 3,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: isSmallScreen ? 15 : 14,
+                ),
+                decoration: InputDecoration(
+                  hintText: 'Provide overall assessment feedback, areas for improvement, and recommendations...',
+                  hintStyle: TextStyle(
+                    color: Colors.white.withOpacity(0.5),
+                    fontSize: isSmallScreen ? 15 : 14,
+                  ),
+                  filled: true,
+                  fillColor: Colors.black.withOpacity(0.3),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide.none,
+                  ),
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: isSmallScreen ? 16 : 12,
+                    horizontal: 12,
+                  ),
+                ),
+                onChanged: (value) {
+                  if (!assessmentData.containsKey(-1)) {
+                    assessmentData[-1] = {};
+                  }
+                  assessmentData[-1]!['overall_comments'] = value;
+                },
+              ),
+            ],
+          ),
+        ),
+        
+        // Evidence & Media Section
+        Container(
+          width: double.infinity,
+          margin: EdgeInsets.only(bottom: isSmallScreen ? 16 : 20),
+          padding: EdgeInsets.all(isSmallScreen ? 16 : 20),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: Colors.white.withOpacity(0.2),
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+                             Row(
+                 children: [
+                   Icon(Icons.attach_file, color: Colors.blue, size: isSmallScreen ? 20 : 24),
+                   SizedBox(width: isSmallScreen ? 8 : 12),
+                   Text(
+                     'Assessment Evidence & Media',
+                     style: TextStyle(
+                       fontSize: isSmallScreen ? 16 : 18,
+                       fontWeight: FontWeight.bold,
+                       color: Colors.white,
+                     ),
+                   ),
+                 ],
+               ),
+              SizedBox(height: isSmallScreen ? 12 : 16),
+              _buildOverallMediaUploadSection(),
+            ],
+          ),
+        ),
+        
+        // Submit Section
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.all(isSmallScreen ? 16 : 20),
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: Colors.white.withOpacity(0.2),
+            ),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Assessment Complete',
+                style: TextStyle(
+                  fontSize: isSmallScreen ? 16 : 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              SizedBox(height: isSmallScreen ? 6 : 8),
+              Text(
+                'Review all sections and submit the assessment',
+                style: TextStyle(
+                  fontSize: isSmallScreen ? 13 : 14,
+                  color: Colors.white.withOpacity(0.8),
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: isSmallScreen ? 16 : 20),
+              MediaQuery.of(context).size.width < 600
+                  ? Column(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton.icon(
+                            onPressed: _saveAssessment,
+                            icon: const Icon(Icons.save),
+                            label: const Text('Save Draft'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              textStyle: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton.icon(
+                            onPressed: _submitAssessment,
+                            icon: const Icon(Icons.send),
+                            label: const Text('Submit Assessment'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.green,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(vertical: 16),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              textStyle: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  : Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: _saveAssessment,
+                            icon: const Icon(Icons.save),
+                            label: const Text('Save Draft'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: _submitAssessment,
+                            icon: const Icon(Icons.send),
+                            label: const Text('Submit'),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.green,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(vertical: 14),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
@@ -1532,10 +1741,10 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
     
     if (relatedItems != null) {
       for (int i = 1; i <= relatedItems.length; i++) {
-        if (!assessmentData.containsKey(i) || assessmentData[i]!['passed'] == null) {
+        if (!assessmentData.containsKey(i) || assessmentData[i]!['competency'] == null) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Please complete assessment for Criteria #$i'),
+              content: Text('Please complete competency assessment for Criteria #$i'),
               backgroundColor: Colors.red,
               duration: const Duration(seconds: 3),
             ),
@@ -1543,51 +1752,94 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
           return;
         }
       }
+      
+      // Calculate final score based on competency
+      final finalScore = _calculateFinalScore(relatedItems);
+      final passed = finalScore >= 75.0;
+      
+      // Show confirmation dialog with score information
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          backgroundColor: Colors.blue.shade900,
+          title: const Text(
+            'Submit Assessment',
+            style: TextStyle(color: Colors.white),
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Assessment Summary:',
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                'Final Score: ${finalScore.toStringAsFixed(1)}%',
+                style: const TextStyle(color: Colors.white70),
+              ),
+              Text(
+                'Minimum Required: 75%',
+                style: const TextStyle(color: Colors.white70),
+              ),
+              const SizedBox(height: 8),
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: passed ? Colors.green.withOpacity(0.2) : Colors.red.withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Text(
+                  passed ? 'PASSED' : 'FAILED',
+                  style: TextStyle(
+                    color: passed ? Colors.green : Colors.red,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              const Text(
+                'Are you sure you want to submit this assessment? This action cannot be undone.',
+                style: TextStyle(color: Colors.white70),
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Cancel', style: TextStyle(color: Colors.white70)),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                _performSubmit(finalScore, passed);
+              },
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+              child: const Text('Submit'),
+            ),
+          ],
+        ),
+      );
     }
-    
-    // Show confirmation dialog
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        backgroundColor: Colors.blue.shade900,
-        title: const Text(
-          'Submit Assessment',
-          style: TextStyle(color: Colors.white),
-        ),
-        content: const Text(
-          'Are you sure you want to submit this assessment? This action cannot be undone.',
-          style: TextStyle(color: Colors.white70),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text('Cancel', style: TextStyle(color: Colors.white70)),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-              _performSubmit();
-            },
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
-            child: const Text('Submit'),
-          ),
-        ],
-      ),
-    );
   }
 
-  void _performSubmit() {
+  void _performSubmit(double averageScore, bool passed) {
     // In a real app, this would send the assessment data to backend
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Assessment submitted successfully!'),
-        backgroundColor: Colors.green,
-        duration: Duration(seconds: 3),
+      SnackBar(
+        content: Text(
+          passed 
+            ? 'Assessment submitted successfully! Score: ${averageScore.toStringAsFixed(1)}% - PASSED'
+            : 'Assessment submitted. Score: ${averageScore.toStringAsFixed(1)}% - FAILED (Minimum 75% required)'
+        ),
+        backgroundColor: passed ? Colors.green : Colors.red,
+        duration: const Duration(seconds: 4),
       ),
     );
     
     // Navigate back after submission
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
         Navigator.of(context).pop();
       }
@@ -2535,11 +2787,11 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
 
   List<Widget> _buildScoringGuide(bool isSmallScreen) {
     final scoringCriteria = [
-      {'range': '90-100', 'description': 'Excellent - All steps performed correctly and efficiently', 'color': Colors.green},
-      {'range': '80-89', 'description': 'Good - Most steps performed correctly with minor issues', 'color': Colors.lightGreen},
-      {'range': '70-79', 'description': 'Satisfactory - Adequate performance with some guidance needed', 'color': Colors.orange},
-      {'range': '60-69', 'description': 'Below Standard - Significant issues requiring improvement', 'color': Colors.deepOrange},
-      {'range': '0-59', 'description': 'Unsatisfactory - Major deficiencies, requires retraining', 'color': Colors.red},
+      {'range': '90-100', 'description': 'Excellent - All steps performed correctly and efficiently (PASS)', 'color': Colors.green},
+      {'range': '80-89', 'description': 'Good - Most steps performed correctly with minor issues (PASS)', 'color': Colors.lightGreen},
+      {'range': '75-79', 'description': 'Satisfactory - Adequate performance, minimum passing grade (PASS)', 'color': Colors.orange},
+      {'range': '60-74', 'description': 'Below Standard - Significant issues requiring improvement (FAIL)', 'color': Colors.deepOrange},
+      {'range': '0-59', 'description': 'Unsatisfactory - Major deficiencies, requires retraining (FAIL)', 'color': Colors.red},
     ];
     
     return scoringCriteria.map((criteria) => Container(
@@ -2787,6 +3039,320 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
     );
   }
 
+  double _calculateFinalScore(List<dynamic>? relatedItems) {
+    if (relatedItems == null || relatedItems.isEmpty) return 0.0;
+    
+    int competentCount = 0;
+    int totalCount = 0;
+    
+    for (int i = 1; i <= relatedItems.length; i++) {
+      if (assessmentData.containsKey(i)) {
+        totalCount++;
+        final competency = assessmentData[i]!['competency'];
+        if (competency == 'competent') {
+          competentCount++;
+        }
+      }
+    }
+    
+    if (totalCount == 0) return 0.0;
+    return (competentCount / totalCount) * 100.0;
+  }
+  
+  bool _areAllCriteriaCompleted(List<dynamic>? relatedItems) {
+    if (relatedItems == null || relatedItems.isEmpty) return false;
+    
+    for (int i = 1; i <= relatedItems.length; i++) {
+      if (!assessmentData.containsKey(i) || assessmentData[i]!['competency'] == null) {
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  Widget _buildFinalAssessmentView(List<dynamic>? relatedItems, bool isSmallScreen) {
+    return SingleChildScrollView(
+      padding: EdgeInsets.all(isSmallScreen ? 16 : 20),
+      child: Column(
+        children: [
+          // Back to Criteria Button
+          Container(
+            width: double.infinity,
+            margin: EdgeInsets.only(bottom: isSmallScreen ? 16 : 20),
+            child: ElevatedButton.icon(
+              onPressed: () {
+                setState(() {
+                  showingFinalAssessment = false;
+                });
+              },
+              icon: const Icon(Icons.arrow_back),
+              label: const Text('Back to Criteria'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue.withOpacity(0.8),
+                foregroundColor: Colors.white,
+                padding: EdgeInsets.symmetric(vertical: isSmallScreen ? 16 : 14),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ),
+          
+          // Final Assessment Title
+          Container(
+            width: double.infinity,
+            padding: EdgeInsets.all(isSmallScreen ? 16 : 20),
+            margin: EdgeInsets.only(bottom: isSmallScreen ? 16 : 20),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color: Colors.white.withOpacity(0.2),
+              ),
+            ),
+            child: Column(
+              children: [
+                Icon(
+                  Icons.assignment_turned_in,
+                  color: Colors.green,
+                  size: isSmallScreen ? 32 : 40,
+                ),
+                SizedBox(height: isSmallScreen ? 8 : 12),
+                Text(
+                  'Final Assessment',
+                  style: TextStyle(
+                    fontSize: isSmallScreen ? 20 : 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: isSmallScreen ? 4 : 8),
+                Text(
+                  'Complete your overall assessment and submit',
+                  style: TextStyle(
+                    fontSize: isSmallScreen ? 14 : 16,
+                    color: Colors.white.withOpacity(0.8),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+          
+          // Final Assessment Sections
+          _buildSubmitSection(),
+        ],
+      ),
+    );
+  }
+  
+  TextEditingController _getOverallCommentsController() {
+    return overallCommentsController;
+  }
+  
+  Widget _buildOverallMediaUploadSection() {
+    final isSmallScreen = MediaQuery.of(context).size.width < 600;
+    
+    // Initialize overall media list if it doesn't exist
+    if (!assessmentData.containsKey(-1)) {
+      assessmentData[-1] = {};
+    }
+    if (!assessmentData[-1]!.containsKey('overall_media')) {
+      assessmentData[-1]!['overall_media'] = <dynamic>[];
+    }
+    
+    final mediaList = assessmentData[-1]!['overall_media'] as List<dynamic>;
+    
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildOverallMediaUploadButtons(),
+        if (mediaList.isNotEmpty) ...[
+          SizedBox(height: isSmallScreen ? 12 : 16),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: mediaList.asMap().entries.map((entry) {
+              final mediaIndex = entry.key;
+              final media = entry.value as Map<String, dynamic>;
+              return _buildOverallMediaChip(mediaIndex, media);
+            }).toList(),
+          ),
+        ],
+      ],
+    );
+  }
+  
+  Widget _buildOverallMediaUploadButtons() {
+    final isSmallScreen = MediaQuery.of(context).size.width < 600;
+    
+    if (isSmallScreen) {
+      return Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: _buildOverallMediaButton(
+                  Icons.camera_alt,
+                  'Photo',
+                  () => _simulateOverallMediaUpload('photo'),
+                  isFullWidth: true,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: _buildOverallMediaButton(
+                  Icons.video_camera_back,
+                  'Video',
+                  () => _simulateOverallMediaUpload('video'),
+                  isFullWidth: true,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          _buildOverallMediaButton(
+            Icons.attach_file,
+            'File',
+            () => _simulateOverallMediaUpload('file'),
+            isFullWidth: true,
+          ),
+        ],
+      );
+    } else {
+      return Row(
+        children: [
+          _buildOverallMediaButton(
+            Icons.camera_alt,
+            'Photo',
+            () => _simulateOverallMediaUpload('photo'),
+          ),
+          const SizedBox(width: 8),
+          _buildOverallMediaButton(
+            Icons.video_camera_back,
+            'Video',
+            () => _simulateOverallMediaUpload('video'),
+          ),
+          const SizedBox(width: 8),
+          _buildOverallMediaButton(
+            Icons.attach_file,
+            'File',
+            () => _simulateOverallMediaUpload('file'),
+          ),
+        ],
+      );
+    }
+  }
+  
+  Widget _buildOverallMediaButton(IconData icon, String label, VoidCallback onTap, {bool isFullWidth = false}) {
+    final isSmallScreen = MediaQuery.of(context).size.width < 600;
+    
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: isFullWidth ? double.infinity : null,
+        padding: EdgeInsets.symmetric(
+          horizontal: isSmallScreen ? 12 : 8, 
+          vertical: isSmallScreen ? 12 : 4,
+        ),
+                 decoration: BoxDecoration(
+           color: Colors.blue,
+           borderRadius: BorderRadius.circular(8),
+           border: Border.all(
+             color: Colors.blue,
+           ),
+         ),
+        child: Row(
+          mainAxisSize: isFullWidth ? MainAxisSize.max : MainAxisSize.min,
+          mainAxisAlignment: isFullWidth ? MainAxisAlignment.center : MainAxisAlignment.start,
+          children: [
+                         Icon(
+               icon, 
+               size: isSmallScreen ? 18 : 14, 
+               color: Colors.white,
+             ),
+             SizedBox(width: isSmallScreen ? 8 : 4),
+             Text(
+               label,
+               style: TextStyle(
+                 fontSize: isSmallScreen ? 14 : 12,
+                 color: Colors.white,
+                 fontWeight: FontWeight.w500,
+               ),
+             ),
+          ],
+        ),
+      ),
+    );
+  }
+  
+  Widget _buildOverallMediaChip(int mediaIndex, Map<String, dynamic> media) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+             decoration: BoxDecoration(
+         color: Colors.blue.withOpacity(0.2),
+         borderRadius: BorderRadius.circular(6),
+         border: Border.all(
+           color: Colors.blue.withOpacity(0.5),
+         ),
+       ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+                     Icon(
+             _getMediaIcon(media['type']),
+             size: 14,
+             color: Colors.blue,
+           ),
+           const SizedBox(width: 4),
+           Text(
+             media['name'] ?? 'Unknown',
+             style: TextStyle(
+               fontSize: 12,
+               color: Colors.blue.withOpacity(0.9),
+             ),
+           ),
+          const SizedBox(width: 4),
+          GestureDetector(
+            onTap: () => _removeOverallMedia(mediaIndex),
+            child: Icon(
+              Icons.close,
+              size: 14,
+              color: Colors.red.withOpacity(0.7),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  
+  void _simulateOverallMediaUpload(String type) {
+    final media = {
+      'type': type,
+      'name': '${type}_${DateTime.now().millisecondsSinceEpoch}.${type == 'photo' ? 'jpg' : type == 'video' ? 'mp4' : 'pdf'}',
+      'timestamp': DateTime.now().toIso8601String(),
+      'size': '2.5 MB',
+    };
+    
+    setState(() {
+      (assessmentData[-1]!['overall_media'] as List<dynamic>).add(media);
+    });
+    
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('${type.toUpperCase()} uploaded successfully'),
+        backgroundColor: Colors.green,
+        duration: const Duration(seconds: 2),
+      ),
+    );
+  }
+  
+  void _removeOverallMedia(int mediaIndex) {
+    setState(() {
+      (assessmentData[-1]!['overall_media'] as List<dynamic>).removeAt(mediaIndex);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -2804,11 +3370,6 @@ class _DMTJsonViewerScreenState extends State<DMTJsonViewerScreen>
         ),
         child: Stack(
           children: [
-            // Animated background bubbles
-            const Positioned.fill(
-              child: BubbleAnimation(),
-            ),
-            
             // Main content
             SafeArea(
               child: SlideTransition(
